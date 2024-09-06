@@ -1,7 +1,7 @@
-# Ignore the Library folder inside the RoboFlora folder
-RoboFlora/Library/
+# Ignore the Library folder inside the Roboflora folder
+Roboflora/Library/
 
 # Ignore other Unity cache folders
-RoboFlora/Temp/
-RoboFlora/Obj/
-RoboFlora/Logs/
+Roboflora/Temp/
+Roboflora/Obj/
+Roboflora/Logs/
