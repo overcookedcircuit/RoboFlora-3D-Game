@@ -6,7 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f; // Movement speed
     public float jumpForce = 8f; // Jump force
-    public float gravity = -9.81f; // Gravity force
+    public float gravity = -15f; // Gravity force
+    public float fallMultiplier = 10f; // Gravity multiplier for when the player is falling
+    public float lowJumpMultiplier = 2f; // Gravity multiplier for low jumps (releasing jump early)
+    
     public CharacterController controller; // Reference to the character controller
     private Vector3 velocity; // Store player's velocity
     public Transform groundCheck; // Reference to an empty object checking for ground
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         // Reset velocity if on the ground
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -2f; // Stick to the ground with a small negative value
         }
 
         // Get input for movement (WASD or arrow keys)
@@ -48,10 +51,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Apply gravity
+        if (velocity.y < 0) // Falling down
+        {
+            velocity.y += gravity * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (velocity.y > 0 && !Input.GetButton("Jump")) // Releasing jump early
+        {
+            velocity.y += gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+
+        // Always apply standard gravity
         velocity.y += gravity * Time.deltaTime;
 
         // Move player by velocity (for gravity and jumping)
         controller.Move(velocity * Time.deltaTime);
     }
 }
-
