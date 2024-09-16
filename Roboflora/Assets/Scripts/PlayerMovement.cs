@@ -1,69 +1,92 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 6f; // Movement speed
-    public float jumpForce = 8f; // Jump force
-    public float gravity = -15f; // Gravity force
-    public float fallMultiplier = 10f; // Gravity multiplier for when the player is falling
-    public float lowJumpMultiplier = 2f; // Gravity multiplier for low jumps (releasing jump early)
+    public float speed = 5;
+    public float rotationSpeed = 500;
+    public float jumpSpeed = 5;
+    public float jumpButtonGracePeriod = 3;
+    public Transform cameraTransform;  // Reference to the camera transform
 
-    public CharacterController controller; // Reference to the character controller
-    private Vector3 velocity; // Store player's velocity
-    public Transform groundCheck; // Reference to an empty object checking for ground
-    public float groundDistance = 0.4f; // Distance from the ground check object to the ground
-    public LayerMask groundMask; // Mask that defines what is considered ground
+    private Animator animator;
+    private CharacterController characterController;
+    private float ySpeed;
+    private float originalStepOffset;
+    private float? lastGroundedTime;
+    private float? jumpButtonPressedTime;
 
-    private bool isGrounded;
-
+    // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
+        originalStepOffset = characterController.stepOffset;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // Check if the player is on the ground
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        // Reset velocity if on the ground
-        if (isGrounded && velocity.y < 0)
+        // Get camera's forward and right directions (flatten on the Y-axis to prevent the player from tilting)
+        Vector3 cameraForward = cameraTransform.forward;
+        cameraForward.y = 0f;  // Zero out Y to keep movement horizontal
+        cameraForward.Normalize();
+
+        Vector3 cameraRight = cameraTransform.right;
+        cameraRight.y = 0f;  // Zero out Y to keep movement horizontal
+        cameraRight.Normalize();
+
+        // Calculate the movement direction based on the camera's orientation
+        Vector3 movementDirection = (cameraForward * verticalInput + cameraRight * horizontalInput).normalized;
+
+        float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
+
+        ySpeed += Physics.gravity.y * Time.deltaTime;
+
+        if (characterController.isGrounded)
         {
-            velocity.y = -2f; // Stick to the ground with a small negative value
+            lastGroundedTime = Time.time;
         }
 
-        // Get input for movement (WASD or arrow keys)
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
-        // Move player in relation to camera direction
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-
-        // Apply movement
-        controller.Move(move * speed * Time.deltaTime);
-
-        // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump"))
         {
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            jumpButtonPressedTime = Time.time;
         }
 
-        // Apply gravity
-        if (velocity.y < 0) // Falling down
+        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
-            velocity.y += gravity * (fallMultiplier - 1) * Time.deltaTime;
+            characterController.stepOffset = originalStepOffset;
+            ySpeed = -0.5f;
+
+            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
+            {
+                ySpeed = jumpSpeed;
+                jumpButtonPressedTime = null;
+                lastGroundedTime = null;
+            }
         }
-        else if (velocity.y > 0 && !Input.GetButton("Jump")) // Releasing jump early
+        else
         {
-            velocity.y += gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+            characterController.stepOffset = 0;
         }
 
-        // Always apply standard gravity
-        velocity.y += gravity * Time.deltaTime;
+        Vector3 velocity = movementDirection * magnitude;
+        velocity.y = ySpeed;
 
-        // Move player by velocity (for gravity and jumping)
-        controller.Move(velocity * Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
+
+        // Rotate the player towards the movement direction
+        if (movementDirection != Vector3.zero)
+        {
+            animator.SetBool("isWalking", true);
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 }

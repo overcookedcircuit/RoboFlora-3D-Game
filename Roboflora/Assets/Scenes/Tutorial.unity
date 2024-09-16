@@ -738,16 +738,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  jumpForce: 8
-  gravity: -15
-  fallMultiplier: 10
-  lowJumpMultiplier: 2
-  controller: {fileID: 800822870}
-  groundCheck: {fileID: 191274163}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
+  rotationSpeed: 500
+  jumpSpeed: 3
+  jumpButtonGracePeriod: 0
+  cameraTransform: {fileID: 1959482551}
 --- !u!143 &800822870
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1310,7 +1304,7 @@ Transform:
   m_GameObject: {fileID: 1464551945}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 1.8589561, y: 6.7023025, z: -11.194071}
+  m_LocalPosition: {x: 1.8589561, y: 21.302303, z: 93.57165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1364,11 +1358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48fbcf43823cc5549ad525e73e3f7f53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.36000204
+      value: 14.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48fbcf43823cc5549ad525e73e3f7f53, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.0657144
+      value: 99.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48fbcf43823cc5549ad525e73e3f7f53, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1501,7 +1495,7 @@ Transform:
   m_GameObject: {fileID: 1959482549}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 1.8589561, y: 6.7023025, z: -11.194071}
+  m_LocalPosition: {x: 1.8589561, y: 21.302303, z: 93.57165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
