@@ -742,8 +742,8 @@ MonoBehaviour:
   gravity: -15
   fallMultiplier: 10
   lowJumpMultiplier: 2
-  controller: {fileID: 0}
-  groundCheck: {fileID: 0}
+  controller: {fileID: 800822870}
+  groundCheck: {fileID: 191274163}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
