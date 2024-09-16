@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.65882355, g: 1, b: 1, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.003
+  m_FogDensity: 0.004
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -325,7 +325,7 @@ Terrain:
   m_TreeBillboardDistance: 2000
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 552
+  m_DetailObjectDistance: 254
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -738,10 +738,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  rotationSpeed: 500
-  jumpSpeed: 5
-  jumpButtonGracePeriod: 2
-  cameraTransform: {fileID: 1959482551}
+  jumpForce: 8
+  gravity: -15
+  fallMultiplier: 10
+  lowJumpMultiplier: 2
+  controller: {fileID: 0}
+  groundCheck: {fileID: 0}
+  groundDistance: 0.4
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!143 &800822870
 CharacterController:
   m_ObjectHideFlags: 0
