@@ -60,11 +60,14 @@
     <Analyzer Include="D:\Unity\Unity 2022.3.32f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\FollowTarget.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\AnimationManager.cs" />
     <Compile Include="Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Pixel Guns 3D\Scripts\GunRotationDemo.cs" />
+    <Compile Include="Assets\Pixel Guns 3D\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -909,6 +912,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Animation.Rigging">
+      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
       <Private>False</Private>
@@ -939,6 +946,10 @@
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Animation.Rigging.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
