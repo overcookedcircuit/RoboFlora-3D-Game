@@ -7,9 +7,9 @@ public class FollowTarget : MonoBehaviour
     // Start is called before the first frame update
 
     public float rotationSpeed = 0f;
-    public float topClamp = 70f;
-    public float bottomClamp = -40f;
-    public Transform followTarget;
+    public float topClamp = 40f;
+    public float bottomClamp = -20f;
+    public Transform target;
 
     // cinemachine
     private float cinemachineTargetYaw;
@@ -29,7 +29,7 @@ public class FollowTarget : MonoBehaviour
 
     private void ApplyRotation(float pitch, float yaw)
     {
-        followTarget.rotation = Quaternion.Euler(pitch, yaw, followTarget.eulerAngles.z);
+        target.rotation = Quaternion.Euler(pitch, yaw, target.eulerAngles.z);
     }
 
     private void CameraInput()
@@ -38,7 +38,7 @@ public class FollowTarget : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
 
         
-        cinemachineTargetPitch = UpdateRotation(cinemachineTargetPitch, mouseY, bottomClamp, topClamp, true);
+        this.cinemachineTargetPitch = UpdateRotation(cinemachineTargetPitch, mouseY, bottomClamp, topClamp, true);
         cinemachineTargetYaw = UpdateRotation(cinemachineTargetYaw, mouseX, float.MinValue, float.MaxValue, false);
 
         ApplyRotation(cinemachineTargetPitch, cinemachineTargetYaw);
