@@ -412,6 +412,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9584d463b888d1d42981520940a7baf0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1515390863}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9584d463b888d1d42981520940a7baf0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1515390865}
   m_SourcePrefab: {fileID: 100100000, guid: 9584d463b888d1d42981520940a7baf0, type: 3}
 --- !u!1001 &131228198
 PrefabInstance:
@@ -2565,6 +2568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0721005f269155e4598dd272cbf9e475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookSpeed: 5
+  zoomSpeed: 10
+  minFOV: 5
+  maxFOV: 10
 --- !u!114 &1186437541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2639,6 +2646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0721005f269155e4598dd272cbf9e475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookSpeed: 5
+  zoomSpeed: 10
+  minFOV: 5
+  maxFOV: 10
 --- !u!114 &1306158049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2657,7 +2668,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1287140474}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1287140474}
   m_Lens:
     FieldOfView: 40
@@ -2759,8 +2770,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rotationSpeed: 100
   verticalSpeed: 5
+  rotationSpeed: 500
+  cameraTransform: {fileID: 1306158050}
+--- !u!143 &1515390865
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515390860}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1639225932
 GameObject:
   m_ObjectHideFlags: 3
