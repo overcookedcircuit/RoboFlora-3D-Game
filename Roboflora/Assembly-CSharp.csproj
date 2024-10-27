@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\AnimationManager.cs" />
     <Compile Include="Assets\Scripts\Weapon\GunWeapon.cs" />
     <Compile Include="Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\CharacterSwitcher.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Pixel Guns 3D\Scripts\GunRotationDemo.cs" />
     <Compile Include="Assets\Pixel Guns 3D\Scripts\CameraController.cs" />
