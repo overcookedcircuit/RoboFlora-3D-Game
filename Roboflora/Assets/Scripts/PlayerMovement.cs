@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 cameraForward = cameraTransform.forward;
         cameraForward.y = 0f;  // Zero out Y to keep movement horizontal
         cameraForward.Normalize();
-
         Vector3 cameraRight = cameraTransform.right;
         cameraRight.y = 0f;  // Zero out Y to keep movement horizontal
         cameraRight.Normalize();

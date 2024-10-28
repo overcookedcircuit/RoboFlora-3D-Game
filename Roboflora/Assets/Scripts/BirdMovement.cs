@@ -35,7 +35,7 @@ public class BirdMovement : MonoBehaviour
         Vector3 cameraForward = cameraTransform.forward;
         cameraForward.y = 0f; // Flatten the forward vector to avoid tilting
         cameraForward.Normalize();
-
+        
         Vector3 cameraRight = cameraTransform.right;
         cameraRight.y = 0f; // Flatten the right vector to avoid tilting
         cameraRight.Normalize();
@@ -46,7 +46,6 @@ public class BirdMovement : MonoBehaviour
 
         // Move the bird in the specified direction
         transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
-
         // Rotate the bird to face the movement direction
         if (movementDirection != Vector3.zero)
         {

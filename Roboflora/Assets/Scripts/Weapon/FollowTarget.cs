@@ -40,7 +40,6 @@ public class FollowTarget : MonoBehaviour
         
         this.cinemachineTargetPitch = UpdateRotation(cinemachineTargetPitch, mouseY, bottomClamp, topClamp, true);
         cinemachineTargetYaw = UpdateRotation(cinemachineTargetYaw, mouseX, float.MinValue, float.MaxValue, false);
-
         ApplyRotation(cinemachineTargetPitch, cinemachineTargetYaw);
     }
 
