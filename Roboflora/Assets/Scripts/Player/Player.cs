@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public CinemachineVirtualCamera defaultCam;
+    public CinemachineVirtualCamera zoomCam;
+    public CinemachineBrain cinemaBrain;
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
 
-    public GunWeapon gun;
+    public GameObject lightGun;
+    public GameObject heavyGun;
+    private GunWeapon gunController;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        gun = GetComponentInChildren<GunWeapon>();
+        gunController = lightGun.GetComponentInChildren<GunWeapon>();
     }
 
     // Update is called once per frame
@@ -23,6 +29,17 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
            TakeDamage(20);
+        }
+
+        if(Input.GetMouseButtonDown(1)){
+            HeavyAttack();
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            gunController = lightGun.GetComponentInChildren<GunWeapon>();
+            defaultCam.Priority = 10;
+            zoomCam.Priority = 0;
         }
         Shooting();
     }
@@ -34,11 +51,17 @@ public class Player : MonoBehaviour
 
     void Shooting(){
         if(Input.GetButtonDown("Fire1")){
-            gun.StartFiring();
+            gunController.StartFiring();
         }
 
         if(Input.GetButtonUp("Fire1")){
-            gun.StopFiring();
+            gunController.StopFiring();
         }
+    }
+
+    void HeavyAttack(){
+        gunController = heavyGun.GetComponentInChildren<GunWeapon>();
+        defaultCam.Priority = 0;
+        zoomCam.Priority = 10;
     }
 }

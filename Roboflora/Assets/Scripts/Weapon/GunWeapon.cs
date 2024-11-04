@@ -21,8 +21,8 @@ public class GunWeapon : MonoBehaviour
     {
         isFiring = true;
         ray.origin = bulletSpawnPoint.position;
+        Debug.Log(bulletSpawnPoint.name);
         ray.direction = bulletEndPoint.position - bulletSpawnPoint.position;
-
         var tracer = Instantiate(trailRenderer, ray.origin, Quaternion.identity);
         tracer.AddPosition(ray.origin);
         if(Physics.Raycast(ray, out rayHit)){
