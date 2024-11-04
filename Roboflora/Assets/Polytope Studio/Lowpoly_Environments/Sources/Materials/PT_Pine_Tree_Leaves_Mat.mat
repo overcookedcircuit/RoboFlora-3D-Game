@@ -8,15 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PT_Pine_Tree_Leaves_Mat
-  m_Shader: {fileID: 4800000, guid: 99134b1f0c27d54469a840832a28fadf, type: 3}
+  m_Shader: {fileID: 4800000, guid: 77e1a76a38ecd5a46a270afb12894dd5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - EFFECT_BUMP
-  - EFFECT_HUE_VARIATION
-  - _WINDQUALITY_FASTEST
+  - _CUSTOMWIND_ON
+  - _TRANSLUCENCYONOFF_ON
   m_InvalidKeywords:
-  - BACKFACE_NORMAL_MODE_MIRROR
+  - _ALPHAPREMULTIPLY_ON
+  - _CUSTOMCOLORSTINTING_ON
+  - _CUSTOMWIND1_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -51,10 +52,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _ExtraTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 47c82777887e3fc46bc141849b1b3ccb, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -71,34 +68,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SubsurfaceTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _texcoord:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BACKFACE_NORMAL_MODE: 1
-    - EFFECT_BILLBOARD: 0
-    - EFFECT_EXTRA_TEX: 1
-    - _AlphaClipThreshold: 0.33
-    - _BillboardKwToggle: 0
-    - _BillboardShadowFade: 0.5
     - _BumpScale: 1
     - _CUSTOMCOLORSTINTING: 1
     - _CUSTOMWIND: 1
@@ -112,17 +87,12 @@ Material:
     - _GlossyReflections: 1
     - _Gradient: 0.073
     - _GradientPower: 2.56
-    - _HueVariationKwToggle: 1
     - _LeavesThickness: 0.513
     - _MaskClipValue: 0.5
     - _Metallic: 0
     - _Mode: 3
-    - _NormalMapKwToggle: 1
     - _OcclusionStrength: 1
-    - _OldHueVarBehavior: 0
     - _Parallax: 0.02
-    - _QueueControl: 0
-    - _QueueOffset: 0
     - _SNOWONOFF: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
@@ -131,8 +101,6 @@ Material:
     - _SnowGradient: 0.446
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SubsurfaceIndirect: 0
-    - _SubsurfaceKwToggle: 0
     - _TRANSLUCENCYONOFF: 1
     - _TransAmbient: 0.7
     - _TransDirect: 1
@@ -140,15 +108,12 @@ Material:
     - _TransScattering: 2
     - _TransShadow: 0.5
     - _Translucency: 7.8
-    - _TwoSided: 2
     - _UVSec: 0
     - _WINDMASKONOFF: 0
-    - _WINDQUALITY: 4
     - _WindDensity: 0.01
     - _WindDensity1: 0.01
     - _WindMovement: 10
     - _WindMovement1: 10
-    - _WindQuality: 1
     - _WindStrength: 1
     - _WindStrength1: 1
     - _ZWrite: 0
@@ -156,8 +121,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GroundColor: {r: 0.0060488326, g: 0.08021983, b: 0.03433981, a: 1}
-    - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.2}
-    - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TopColor: {r: 0.026241222, g: 0.22696589, b: 0.052860655, a: 1}
+    - _GroundColor: {r: 0, g: 0.026241222, b: 0.003676507, a: 1}
+    - _TopColor: {r: 0.027320892, g: 0.21952623, b: 0.052860655, a: 1}
   m_BuildTextureStacks: []
