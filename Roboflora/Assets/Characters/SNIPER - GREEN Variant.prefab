@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1637459088437315740}
-  - component: {fileID: 1979792731588404971}
   m_Layer: 0
   m_Name: SNIPER - GREEN Variant
   m_TagString: Untagged
@@ -35,22 +34,6 @@ Transform:
   - {fileID: 5794181711225126724}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1979792731588404971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637459088437315739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c8f867864b618143b37b058ba16fe05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFiring: 0
-  bulletSpawnPoint: {fileID: 0}
-  bulletEndPoint: {fileID: 0}
-  trailRenderer: {fileID: 3436731966095911771, guid: 07e55d5830e460a438a3c3c3fa846069, type: 3}
 --- !u!1 &1709781580518145282
 GameObject:
   m_ObjectHideFlags: 0

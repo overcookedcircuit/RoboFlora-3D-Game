@@ -14,14 +14,14 @@ public class Player : MonoBehaviour
 
     public GameObject lightGun;
     public GameObject heavyGun;
-    private GunWeapon gunController;
+    private GunBehavior gunController;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        gunController = lightGun.GetComponentInChildren<GunWeapon>();
+        gunController = lightGun.GetComponentInChildren<GunBehavior>();
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonUp(1))
         {
-            gunController = lightGun.GetComponentInChildren<GunWeapon>();
+            gunController = lightGun.GetComponentInChildren<GunBehavior>();
             defaultCam.Priority = 10;
             zoomCam.Priority = 0;
         }
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     }
 
     void HeavyAttack(){
-        gunController = heavyGun.GetComponentInChildren<GunWeapon>();
+        gunController = heavyGun.GetComponentInChildren<GunBehavior>();
         defaultCam.Priority = 0;
         zoomCam.Priority = 10;
     }

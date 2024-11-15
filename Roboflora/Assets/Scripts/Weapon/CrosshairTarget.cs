@@ -8,6 +8,7 @@ public class CrosshairTarget : MonoBehaviour
     Ray ray;
     RaycastHit rayHit;
 
+    public float maxTargetRange = 50f;
     public Vector3 destination;
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,12 @@ public class CrosshairTarget : MonoBehaviour
     {
         ray.origin = mainCamera.transform.position;
         ray.direction = mainCamera.transform.forward;
-        Physics.Raycast(ray, out rayHit);
-        transform.position = rayHit.point;
-        destination = rayHit.point;
+        if(Physics.Raycast(ray, out rayHit)){
+            transform.position = rayHit.point;
+            destination = rayHit.point;
+        }else{
+            transform.position =  mainCamera.transform.position + mainCamera.transform.forward  * maxTargetRange;
+            destination = mainCamera.transform.position + mainCamera.transform.forward * maxTargetRange ; 
+        }        
     }
 }
