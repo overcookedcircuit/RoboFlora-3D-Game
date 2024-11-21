@@ -44,19 +44,17 @@ public class RhinoMovement : MonoBehaviour
 
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * currentSpeed;
 
-        animator.SetFloat("CharacterSpeed", isIdle ? 0f : currentSpeed, 0.1f, Time.deltaTime);
+        animator.SetBool("isWalking", !isIdle);
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
         if (characterController.isGrounded)
         {
-            animator.SetBool("isJumping", false);
             ySpeed = -0.5f;
 
             if (Input.GetButtonDown("Jump"))
             {
                 ySpeed = jumpSpeed;
-                animator.SetBool("isJumping", true);
             }
         }
 
