@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Roboflora.sln"
+    "dotnet.defaultSolution": "Roboflora.sln",
+    "cSpell.words": [
+        "Raycast"
+    ]
 }
