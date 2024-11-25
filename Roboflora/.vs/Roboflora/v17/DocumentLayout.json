@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\",
+  "WorkspaceRootPath": "C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\FollowTarget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FollowTarget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\CharacterSwitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CharacterSwitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\RhinoMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\RhinoMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\CameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FollowTarget.cs",
-              "DocumentMoniker": "E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\FollowTarget.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\FollowTarget.cs",
-              "ToolTip": "E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\FollowTarget.cs",
-              "RelativeToolTip": "Assets\\Scripts\\FollowTarget.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACIAAAAeAAAA",
+              "Title": "CharacterSwitcher.cs",
+              "DocumentMoniker": "C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\CharacterSwitcher.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CharacterSwitcher.cs",
+              "ToolTip": "C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\CharacterSwitcher.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CharacterSwitcher.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAADwv2gAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T18:38:54.913Z",
+              "WhenOpened": "2024-11-25T20:11:18.771Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PlayerMovement.cs",
-              "DocumentMoniker": "E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\PlayerMovement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
-              "ToolTip": "E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\PlayerMovement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACoAAAA+AAAA",
+              "Title": "RhinoMovement.cs",
+              "DocumentMoniker": "C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\RhinoMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RhinoMovement.cs",
+              "ToolTip": "C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\RhinoMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RhinoMovement.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC8AAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T17:08:11.64Z",
+              "WhenOpened": "2024-11-25T20:00:49.146Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CameraController.cs",
-              "DocumentMoniker": "E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\CameraController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraController.cs",
-              "ToolTip": "E:\\School\\GameProg\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\CameraController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CameraController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
+              "ToolTip": "C:\\Users\\2174669\\Documents\\RoboFlora-3D-Game\\Roboflora\\Assets\\Scripts\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACoAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T16:48:34.154Z",
+              "WhenOpened": "2024-10-18T17:08:11.64Z",
               "EditorCaption": ""
             }
           ]

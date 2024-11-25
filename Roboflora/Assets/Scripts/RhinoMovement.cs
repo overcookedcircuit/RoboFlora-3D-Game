@@ -44,6 +44,7 @@ public class RhinoMovement : MonoBehaviour
 
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * currentSpeed;
 
+        animator.SetFloat("RhinoSpeed", isIdle ? 0f : currentSpeed, 0.1f, Time.deltaTime);
         animator.SetBool("isWalking", !isIdle);
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
