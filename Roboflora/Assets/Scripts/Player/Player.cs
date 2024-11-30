@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
 
     void HeavyAttack(){
         gunController = heavyGun.GetComponentInChildren<GunBehavior>();
+        gunController.ResetCharge();
         defaultCam.Priority = 0;
         zoomCam.Priority = 10;
     }

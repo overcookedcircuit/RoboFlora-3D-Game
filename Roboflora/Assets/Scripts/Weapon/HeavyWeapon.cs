@@ -11,6 +11,7 @@ public class HeavyWeapon : GunBehavior
     RaycastHit rayHit;
 
     void Start(){
+        currentCharge = 0;
         chargeNeeded = 3;
         isFiring = false;
         lineRenderer = GetComponent<LineRenderer>();
@@ -52,5 +53,9 @@ public class HeavyWeapon : GunBehavior
     public override void StopFiring()
     {
         isFiring = false;
+    }
+
+    public override void ResetCharge(){
+        currentCharge = 0;
     }
 }

@@ -9,4 +9,6 @@ public abstract class GunBehavior : MonoBehaviour{
     public abstract void StartFiring();
 
     public abstract void StopFiring();
+
+    public abstract void ResetCharge();
 }

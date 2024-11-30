@@ -29,4 +29,7 @@ public class LightWeapon : GunBehavior
     {
         isFiring = false;
     }
+
+    public override void ResetCharge(){
+    }
 }
