@@ -1,21 +1,23 @@
 using UnityEngine;
+using System.Collections;
 
 public class RhinoMovement : MonoBehaviour
 {
     public float walkSpeed = 5;
-    public float runSpeed = 10;
+    public float runSpeed = 7;
     public float rotationSpeed = 500;
     public float jumpSpeed = 5;
     public Transform cameraTransform;  // Reference to the camera transform
     public float chargeSpeedStart = 5;
-    public float chargeSpeedMax = 7;
-    public float chargeRate = 1;  // How quickly the speed increases during charging
+    public float chargeSpeedMax = 10;
+    public float chargeRate = 5;  // How quickly the speed increases during charging
 
     private Animator animator;
     private CharacterController characterController;
     private float ySpeed;
     private bool isCharging = false;
     private float currentChargeSpeed;
+    private bool isExecutingCharge = false;
 
     void Start()
     {
@@ -26,6 +28,8 @@ public class RhinoMovement : MonoBehaviour
 
     void Update()
     {
+        if (isExecutingCharge) return; // Skip input handling if a charge is already being executed
+
         // Handle charging
         if (Input.GetMouseButton(1)) // Right mouse button held down
         {
@@ -36,7 +40,7 @@ public class RhinoMovement : MonoBehaviour
         }
         else if (isCharging) // Right mouse button released
         {
-            ExecuteCharge();
+            StartCoroutine(ExecuteCharge());
             isCharging = false;
             currentChargeSpeed = chargeSpeedStart; // Reset charge speed for the next charge
         }
@@ -49,6 +53,8 @@ public class RhinoMovement : MonoBehaviour
 
     void HandleMovement()
     {
+        if (isExecutingCharge) return; // Disable movement if the charge is ongoing
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -94,16 +100,35 @@ public class RhinoMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, correctedRotation, rotationSpeed * Time.deltaTime);
         }
     }
-
-    void ExecuteCharge()
+    IEnumerator ExecuteCharge()
     {
-        float chargeMultiplier = (currentChargeSpeed == chargeSpeedMax) ? 300 : 200;
-        Vector3 chargeDirection = transform.forward * (currentChargeSpeed * chargeMultiplier);
+        isExecutingCharge = true;
+        float chargeDuration = 2f; // Charge for 2 seconds
+        float elapsedTime = 0f;
 
-        // Apply the charge velocity (ignores vertical movement)
-        Vector3 velocity = new Vector3(chargeDirection.x, ySpeed, chargeDirection.z);
-        characterController.Move(velocity * Time.deltaTime);
+        // Ensure the charge starts with a minimum speed
+        float chargeSpeed = Mathf.Max(currentChargeSpeed, runSpeed + 2); // Ensure charge is always faster than running
 
-        Debug.Log($"Charge executed with speed multiplier: {chargeMultiplier} and speed: {(currentChargeSpeed * chargeMultiplier)}");
+        // Calculate the corrected forward direction (90-degree adjustment)
+        Vector3 correctedChargeDirection = Quaternion.Euler(0, -90, 0) * transform.forward;
+
+        animator.SetBool("isWalking", true);
+
+        while (elapsedTime < chargeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            // Apply charge movement in the corrected direction
+            Vector3 velocity = correctedChargeDirection * chargeSpeed;
+            velocity.y = ySpeed; // Maintain gravity during charge
+            characterController.Move(velocity * Time.deltaTime);
+
+            yield return null;
+        }
+
+        animator.SetBool("isWalking", false);
+        isExecutingCharge = false;
     }
+
+
 }
