@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Cinemachine;
-using System;
+using System.Collections;
+using TMPro;
 
 public class CharacterSwitcher : MonoBehaviour
 {
@@ -11,17 +13,34 @@ public class CharacterSwitcher : MonoBehaviour
     public CinemachineVirtualCamera playerCamera;    // Reference to the Player Virtual Camera
     public CinemachineVirtualCamera birdCamera;      // Reference to the Bird Virtual Camera
     public CinemachineVirtualCamera rhinoCamera;     // Reference to the Rhino Virtual Camera
-
     private string currentCharacter = "player";      // Start with the player as the active character
+
+    [SerializeField] private Image batteryImage; // Drag your Image component here in the Inspector
+    [SerializeField] private TMP_Text batteryCountText; // Reference to TMP_Text for countdown
+    Sprite[] batterySprites = new Sprite[6];
+    private int morphBattery = 5;
+    private bool isRecharging = false; // Prevent multiple recharge countdowns
 
     void Start()
     {
         // Initialize by setting the player active and others inactive
         ActivatePlayer();
+
+        for (int i = 0; i < 6; i++) // Fixed range to include all battery sprites
+        {
+            batterySprites[i] = Resources.Load<Sprite>($"battery{i}");
+        }
+
+        UpdateBatteryUI(); // Update UI to reflect initial battery state
     }
 
     void Update()
     {
+        if (morphBattery < 5 && !isRecharging)
+        {
+            StartCoroutine(RechargeBattery());
+        }
+
         if (Input.anyKeyDown)
         {
             switch (Input.inputString) // Get the pressed key as a string
@@ -43,6 +62,21 @@ public class CharacterSwitcher : MonoBehaviour
 
     void SwitchCharacter(string newCharacter)
     {
+        if (currentCharacter == newCharacter)
+        {
+            Debug.Log($"{newCharacter} is already active. No morphing required.");
+            return; // Exit the method
+        }
+
+        if (morphBattery <= 0)
+        {
+            Debug.Log("Not enough battery to morph!");
+            return;
+        }
+
+        morphBattery -= 1;
+        UpdateBatteryUI();
+
         // Get the current active character's transform
         Transform currentTransform = null;
 
@@ -100,5 +134,36 @@ public class CharacterSwitcher : MonoBehaviour
         rhinoCamera.Priority = 0;    // Set low priority for Rhino Camera
 
         currentCharacter = "player";
+    }
+
+    IEnumerator RechargeBattery()
+    {
+        isRecharging = true;
+
+        int countdown = 10;
+        while (countdown > 0)
+        {
+            batteryCountText.text = $"{countdown}";
+            yield return new WaitForSeconds(1);
+            countdown--;
+        }
+
+        // Add +1 to morphBattery
+        morphBattery = Mathf.Min(morphBattery + 1, 5); // Ensure morphBattery doesn't exceed 5
+        UpdateBatteryUI();
+
+        // Clear the countdown text
+        batteryCountText.text = "";
+
+        isRecharging = false;
+    }
+
+    void UpdateBatteryUI()
+    {
+        // Update the battery sprite and UI text
+        if (morphBattery >= 0 && morphBattery < batterySprites.Length)
+        {
+            batteryImage.sprite = batterySprites[morphBattery];
+        }
     }
 }
