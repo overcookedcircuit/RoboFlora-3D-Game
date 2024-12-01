@@ -15,7 +15,7 @@ public class AttackState : IState
     public void Enter()
     {
         Debug.Log("Boss Attack Player");
-        aiController.Animator.SetBool("isAttacking", false);
+        aiController.Animator.SetBool("isAttacking", true);
         aiController.Agent.isStopped = true; // Stop the AI agent movement
     }
 
@@ -30,7 +30,7 @@ public class AttackState : IState
         }
 
         // Restart the level since the player is "hit"
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Exit()

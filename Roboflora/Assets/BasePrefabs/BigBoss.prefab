@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5360236862003827736}
   - component: {fileID: 644150217865211437}
   - component: {fileID: 6319885938992197793}
+  - component: {fileID: 3161703400153329597}
   m_Layer: 0
   m_Name: BigBoss
   m_TagString: Untagged
@@ -56,7 +57,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &5360236862003827736
@@ -74,11 +75,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 7
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 4, z: 0}
@@ -99,9 +100,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Player: {fileID: 0}
-  SightRange: 10
-  maxAngle: 20
-  AttackRange: 2
+  SightRange: 40
+  maxAngle: 90
+  AttackRange: 5
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -131,6 +132,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3161703400153329597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257458098493324556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a531e8557fc63c4cbe03a66a782909a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  speed: 10
 --- !u!1 &8484594320975209672
 GameObject:
   m_ObjectHideFlags: 0

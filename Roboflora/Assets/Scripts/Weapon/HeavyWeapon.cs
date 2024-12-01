@@ -34,6 +34,11 @@ public class HeavyWeapon : GunBehavior
             if(Physics.Raycast(ray, out rayHit)){
                 // tracer.SetPosition(1, rayHit.point);
                 lineRenderer.SetPosition(1, rayHit.point);
+
+                //if Hit GameObject with 'Enemy' Tag, deal damage
+                if(rayHit.transform.gameObject.tag == "Enemy"){
+                    rayHit.transform.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(50);
+                }
             }else{
                 lineRenderer.SetPosition(1,  ray.origin + ray.direction * bulletEndPoint.maxTargetRange);
             }

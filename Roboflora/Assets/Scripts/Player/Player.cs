@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public CinemachineVirtualCamera defaultCam;
@@ -44,11 +44,18 @@ public class Player : MonoBehaviour
         Shooting();
     }
 
-    void TakeDamage(int damage) {
+    public void TakeDamage(int damage) {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        if(currentHealth <= 0){
+            Die();
+        }
     }
 
+    void Die(){
+        this.gameObject.SetActive(false);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     void Shooting(){
         if(Input.GetButtonDown("Fire1")){
             gunController.StartFiring();

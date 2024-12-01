@@ -10,7 +10,7 @@ public class AIController : MonoBehaviour
     public Transform Player;
     public float SightRange = 10f;
     public float maxAngle = 45.0f;
-    public float AttackRange = 2f; // New attack range variable
+    public float AttackRange = 15f; // New attack range variable
     public LayerMask PlayerLayer;
     public LayerMask obstacleMask; // Assign this in the Inspector to include walls, terrain, etc.
     public StateType currentState;

@@ -7,10 +7,6 @@ public class CameraController : MonoBehaviour
     public float zoomSpeed = 10f;   // Speed of zooming in/out
     public float minFOV = 5f;     // Minimum zoom (field of view)
     public float maxFOV = 10f;     // Maximum zoom (field of view)
-
-    private float rotationX = 0f;
-    private float rotationY = 0f;
-
     private CinemachineVirtualCamera virtualCamera;
 
     void Start()

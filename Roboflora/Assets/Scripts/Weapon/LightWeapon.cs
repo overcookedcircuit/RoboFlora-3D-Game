@@ -20,6 +20,11 @@ public class LightWeapon : GunBehavior
         tracer.AddPosition(ray.origin);
         if(Physics.Raycast(ray, out rayHit)){
             tracer.transform.position = rayHit.point;
+            
+            //if Hit GameObject with 'Enemy' Tag, deal damage
+            if(rayHit.transform.gameObject.tag == "Enemy"){
+                rayHit.transform.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(10);
+            }
         }else{
             tracer.transform.position = ray.origin + ray.direction * bulletEndPoint.maxTargetRange;
         }
