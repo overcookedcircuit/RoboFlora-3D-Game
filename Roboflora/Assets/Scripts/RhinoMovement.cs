@@ -70,7 +70,22 @@ public class RhinoMovement : MonoBehaviour
 
         bool isIdle = movementDirection.magnitude == 0f;
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float currentSpeed = isRunning ? runSpeed : walkSpeed;
+
+        float currentSpeed;
+
+        if (isRunning) {
+            if (PlayerManager.Instance.stamina > 0) {
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina-0.1f);
+                currentSpeed = runSpeed;
+            } else {
+                currentSpeed = walkSpeed;
+            }
+        } else {
+            if (PlayerManager.Instance.stamina < PlayerManager.Instance.maxStamina) {
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina+0.2f);
+            }
+            currentSpeed = walkSpeed;
+        }
 
         animator.SetFloat("RhinoSpeed", isIdle ? 0f : currentSpeed, 0.1f, Time.deltaTime);
         animator.SetBool("isWalking", !isIdle);

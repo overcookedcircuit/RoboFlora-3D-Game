@@ -39,7 +39,21 @@ public class PlayerMovement : MonoBehaviour
         // Detect running input (Shift key) and adjust speed
         bool isIdle = movementDirection.magnitude == 0f;
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float currentSpeed = isRunning ? runSpeed : walkSpeed;
+        float currentSpeed;
+
+        if (isRunning) {
+            if (PlayerManager.Instance.stamina > 0) {
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina-0.1f);
+                currentSpeed = runSpeed;
+            } else {
+                currentSpeed = walkSpeed;
+            }
+        } else {
+            if (PlayerManager.Instance.stamina < PlayerManager.Instance.maxStamina) {
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina+0.2f);
+            }
+            currentSpeed = walkSpeed;
+        }
 
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * currentSpeed;
         
