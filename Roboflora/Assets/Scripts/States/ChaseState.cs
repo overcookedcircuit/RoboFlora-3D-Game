@@ -13,10 +13,10 @@ public class ChaseState : IState
 
     public void Enter()
     {
-	   aiController.Animator.SetBool("isChasing", true);
-       aiController.Animator.SetBool("isAttacking", false);
-       aiController.Agent.speed = 7;
-       Debug.Log("Boss chasing");
+        aiController.Animator.SetBool("isChasing", true);
+        aiController.Animator.SetBool("isAttacking", false);
+        aiController.Agent.speed = aiController.chasingSpeed;
+        Debug.Log("Boss chasing");
         // No animations, so no need to set any animator parameters
     }
 
@@ -24,7 +24,6 @@ public class ChaseState : IState
     {
         if (!aiController.CanSeePlayer())
         {
-            Debug.Log("Chasing Stop");
             aiController.Agent.speed = 2;
             aiController.StateMachine.TransitionToState(StateType.Patrol);
             return;

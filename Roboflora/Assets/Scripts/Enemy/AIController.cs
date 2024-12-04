@@ -15,6 +15,9 @@ public class AIController : MonoBehaviour
     public LayerMask obstacleMask; // Assign this in the Inspector to include walls, terrain, etc.
     public StateType currentState;
     public Transform raycastOrigin;
+
+    public float chasingSpeed;
+
     void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
@@ -25,7 +28,6 @@ public class AIController : MonoBehaviour
         StateMachine.AddState(new PatrolState(this));
         StateMachine.AddState(new ChaseState(this));
         StateMachine.AddState(new AttackState(this)); // Add the new AttackState
-
         StateMachine.TransitionToState(StateType.Idle);
     }
 

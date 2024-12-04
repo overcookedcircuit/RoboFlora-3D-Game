@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
     public Image healthFill;
     public Image staminaFill;
 
-    [SerializeField] GameObject pauseMenu;
+    public GameObject pauseMenu;
     private bool gamePaused = false;
 
     // Player stats
@@ -72,6 +72,8 @@ public class PlayerManager : MonoBehaviour
     {
         SetMaxHealth(maxHealth);
         SetStamina(maxStamina);
+        
+        Play();
     }
 
     public void Update()
@@ -81,6 +83,8 @@ public class PlayerManager : MonoBehaviour
             Time.timeScale = 0;
             gamePaused = true;
             pauseMenu.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == true)
         {
@@ -89,10 +93,11 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void Play()
-    {
-        Time.timeScale = 1;
-        gamePaused = false;
+    {   
+        Time.timeScale = 1; 
+        Cursor.visible = false;
         pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Quit()
