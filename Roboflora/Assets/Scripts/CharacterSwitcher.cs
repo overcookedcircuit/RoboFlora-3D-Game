@@ -41,6 +41,18 @@ public class CharacterSwitcher : MonoBehaviour
             StartCoroutine(RechargeBattery());
         }
 
+        if (currentCharacter == "bird")
+        {
+            if (PlayerManager.Instance.stamina > 0)
+            {
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina - 0.05f);
+            }
+            else
+            {
+                SwitchCharacter("player", true);
+            }
+        }
+
         if (Input.anyKeyDown)
         {
             switch (Input.inputString) // Get the pressed key as a string
@@ -60,7 +72,7 @@ public class CharacterSwitcher : MonoBehaviour
         }
     }
 
-    void SwitchCharacter(string newCharacter)
+    void SwitchCharacter(string newCharacter, bool skipBatteryCheck = false)
     {
         if (currentCharacter == newCharacter)
         {
@@ -68,14 +80,17 @@ public class CharacterSwitcher : MonoBehaviour
             return; // Exit the method
         }
 
-        if (morphBattery <= 0)
+        if (!skipBatteryCheck && morphBattery <= 0)
         {
             Debug.Log("Not enough battery to morph!");
             return;
         }
 
-        morphBattery -= 1;
-        UpdateBatteryUI();
+        if (!skipBatteryCheck)
+        {
+            morphBattery -= 1;
+            UpdateBatteryUI();
+        }
 
         // Get the current active character's transform
         Transform currentTransform = null;
