@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1904
     height: 973
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 198
     height: 923
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 45
+  controlID: 44
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 111
+  controlID: 107
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -755,8 +755,8 @@ MonoBehaviour:
       containerId: Floating
       floating: 1
       collapsed: 0
-      displayed: 1
-      snapOffset: {x: -480, y: -365}
+      displayed: 0
+      snapOffset: {x: -456, y: -279}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: AINavigationOverlay
@@ -775,9 +775,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 517.4886, y: 48.189102, z: 619.91345}
+    m_Target: {x: 127.29, y: 3.25, z: 99.02}
     speed: 2
-    m_Value: {x: 517.4886, y: 48.189102, z: 619.91345}
+    m_Value: {x: 127.29, y: 3.25, z: 99.02}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -823,17 +823,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.13727014, y: 0.34511593, z: -0.051099315, w: 0.92707276}
+    m_Target: {x: -0.0802901, y: -0.6118277, z: 0.0626228, w: -0.7844218}
     speed: 2
-    m_Value: {x: 0.13726854, y: 0.34511194, z: -0.051098723, w: 0.92706203}
+    m_Value: {x: -0.08019532, y: -0.61299783, z: 0.062742576, w: -0.7834958}
   m_Size:
-    m_Target: 1.2247449
+    m_Target: 0.34640956
     speed: 2
-    m_Value: 1.2247449
+    m_Value: 0.3464152
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 2
     m_SpeedNormalized: 1
@@ -891,9 +891,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 3cddfdff56ddfdff6eddfdffc016feffd41afeffd61afeff5a2cfeff642cfeff967efeff2086fefffe87feff54dafeff06dbfeffd4ddfeff2ae1feff5633ffff4840ffff6292ffff10fbffffd0940100d4280200
+      m_SelectedIDs: 52790000
+      m_LastClickedID: 31058
+      m_ExpandedIDs: e2f6ffff52790000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -954,6 +954,7 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: 6699748148413361705, guid: 161b6978924c7d64e94e039abeb2f8f9, type: 2}
+    - {fileID: -350473013375949345, guid: 9456d55231991d0408c473484ed352e8, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.8121803
       e01: 0
@@ -971,10 +972,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 161b6978924c7d64e94e039abeb2f8f9, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 9456d55231991d0408c473484ed352e8, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 6699748148413361705, guid: 161b6978924c7d64e94e039abeb2f8f9, type: 2}
+  - m_Target: {fileID: -350473013375949345, guid: 9456d55231991d0408c473484ed352e8, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1066,7 +1083,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Resources
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1074,16 +1091,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Resources
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\2156512\Documents\RoboFlora-3D-Game\Roboflora
+  m_LastProjectPath: C:\Users\deadc\Documents\GitHub\RoboFlora-3D-Game\Roboflora
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 102}
-    m_SelectedIDs: 96cd0300
-    m_LastClickedID: 249238
-    m_ExpandedIDs: 0000000006bc0000aabd0000bcbd000000ca9a3b
+    m_SelectedIDs: 367e0000
+    m_LastClickedID: 32310
+    m_ExpandedIDs: 00000000f07d0000f27d0000f47d0000f67d0000247e00000488000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1111,7 +1128,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000006bc0000
+    m_ExpandedIDs: 00000000f07d0000f27d0000f47d0000f67d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
