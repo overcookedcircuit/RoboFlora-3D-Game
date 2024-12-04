@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1652786536125986544}
   - component: {fileID: 7248520913215622691}
   - component: {fileID: 3078164114797942692}
+  - component: {fileID: 8480554074122917773}
+  - component: {fileID: 280597525121685967}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -26,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3195866303745616896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.0072587254, z: -0, w: 0.9999737}
+  m_LocalRotation: {x: 0, y: 0.0072605037, z: 0, w: 0.99997365}
   m_LocalPosition: {x: 2.2797923, y: 4.88, z: 94.19335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4239902618509416446}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.832, z: 0}
 --- !u!114 &7248520913215622691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +91,52 @@ MonoBehaviour:
   zoomSpeed: 10
   minFOV: 5
   maxFOV: 10
+--- !u!114 &8480554074122917773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3195866303745616896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 4
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 0
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
+--- !u!114 &280597525121685967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3195866303745616896}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4700f9f03ad19f94baf0367cb7a9c988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Width: 2.66
+  m_Damping: 1
+  m_MinFOV: 30
+  m_MaxFOV: 60
 --- !u!1 &5040682636379115693
 GameObject:
   m_ObjectHideFlags: 0

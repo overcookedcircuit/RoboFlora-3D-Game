@@ -11,16 +11,21 @@ public class LightWeapon : GunBehavior
 
     public override void StartFiring()
     {
+        //Get the direction of the crosshair and cast it
         isFiring = true;
         ray.origin = bulletSpawnPoint.position;
-        
         ray.direction = bulletEndPoint.destination - bulletSpawnPoint.position;
-        Debug.Log("direction: " +  ray.direction);
         var tracer = Instantiate(trailRenderer, ray.origin, Quaternion.identity);
         tracer.AddPosition(ray.origin);
+
         if(Physics.Raycast(ray, out rayHit)){
+            var impactEffect = bulletImpactEffect.GetComponent<ParticleSystem>();
+            var main  = impactEffect.main;
+            main.startSize = 1;
+            bulletImpactEffect.transform.position = rayHit.point;
+            bulletImpactEffect.GetComponent<ParticleSystem>().Play();
+
             tracer.transform.position = rayHit.point;
-            
             //if Hit GameObject with 'Enemy' Tag, deal damage
             if(rayHit.transform.gameObject.tag == "Enemy"){
                 rayHit.transform.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(10);

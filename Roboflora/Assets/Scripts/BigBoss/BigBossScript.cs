@@ -62,7 +62,7 @@ public class BigBossScript : EnemyBaseBehavior
         if(health <= 0){
             Die();
         }
-        Debug.Log(this.health);
+        Debug.Log("HEALTH: " +this.health);
     }
 
     public override void Die()

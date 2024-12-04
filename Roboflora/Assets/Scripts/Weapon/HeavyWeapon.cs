@@ -6,16 +6,16 @@ public class HeavyWeapon : GunBehavior
     private float currentCharge;
     public float chargeNeeded;
     public float laserDuration = 0.85f;
-    private LineRenderer lineRenderer;
+
+    public GameObject beam;
     Ray ray;
     RaycastHit rayHit;
 
     void Start(){
+        beam.SetActive(false);
         currentCharge = 0;
         chargeNeeded = 3;
         isFiring = false;
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = false;
     }
 
     void Update(){
@@ -28,20 +28,6 @@ public class HeavyWeapon : GunBehavior
         //If the charge time is long enough, fire a beam and reset the timer
         if(currentCharge >= chargeNeeded){
             isFiring = true;
-            ray.origin = bulletSpawnPoint.position;
-            ray.direction = bulletEndPoint.destination - bulletSpawnPoint.position;
-            lineRenderer.SetPosition(0, ray.origin);
-            if(Physics.Raycast(ray, out rayHit)){
-                // tracer.SetPosition(1, rayHit.point);
-                lineRenderer.SetPosition(1, rayHit.point);
-
-                //if Hit GameObject with 'Enemy' Tag, deal damage
-                if(rayHit.transform.gameObject.tag == "Enemy"){
-                    rayHit.transform.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(50);
-                }
-            }else{
-                lineRenderer.SetPosition(1,  ray.origin + ray.direction * bulletEndPoint.maxTargetRange);
-            }
             StartCoroutine(ShootLaser());
             currentCharge = 0;
         }else{
@@ -51,9 +37,9 @@ public class HeavyWeapon : GunBehavior
     }
 
     IEnumerator ShootLaser(){
-        lineRenderer.enabled = true;
+        beam.SetActive(true);
         yield return new WaitForSeconds(laserDuration);
-        lineRenderer.enabled = false;
+        beam.SetActive(false);
     }
     public override void StopFiring()
     {
