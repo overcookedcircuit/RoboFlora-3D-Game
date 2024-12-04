@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instructionSets = new String[10];
+        instructionSets = new String[12];
         index = 0;
         instructionSets[0] = "Press Left Click to Shoot";
         instructionSets[1] = "Hold Down Right Click, wait till fully charge, then left click to shoot";
@@ -25,6 +26,7 @@ public class TutorialManager : MonoBehaviour
         instructionSets[7] = "Press W A S D to Move, SHIFT to run";
         instructionSets[8] = "Hold Down Right Click, and release to activate a charge attack";
         instructionSets[9] = "Press 1 To Switch to Humanoid Form";
+        instructionSets[10] = "Are You Ready?";
     }
 
     // Update is called once per frame
@@ -32,8 +34,13 @@ public class TutorialManager : MonoBehaviour
     {
         if (Input.GetKeyDown("j"))
         {
-            instructionText.text = instructionSets[index];
-            index++;
+            if(index == 11){
+                SceneManager.LoadScene("world1");
+            }else{
+                instructionText.text = instructionSets[index];
+                index++;
+            }
+            
         }
     }
 }

@@ -7,16 +7,6 @@ public class SpawnGunImpact : MonoBehaviour
     public GameObject bulletImpactEffect;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -24,6 +14,9 @@ public class SpawnGunImpact : MonoBehaviour
         int numOfContact = collision.contactCount;
         ContactPoint[] contactPoints = new ContactPoint[numOfContact];
         collision.GetContacts(contactPoints);
+
+        if(collision.gameObject.tag == "Enemy")
+            collision.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(50);
 
         foreach (ContactPoint cp in contactPoints)
         {
@@ -35,11 +28,5 @@ public class SpawnGunImpact : MonoBehaviour
             impact.GetComponent<ParticleSystem>().Play();
             Destroy(impact, 1f); 
         }
-        collision.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(50);
     }
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     Debug.Log(other.gameObject.name);
-    // }
 }

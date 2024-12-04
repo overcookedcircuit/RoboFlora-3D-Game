@@ -24,6 +24,7 @@ public class PatrolState : IState
     {
         if (aiController.CanSeePlayer())
         {
+            Debug.Log("See Player");
             aiController.StateMachine.TransitionToState(StateType.Chase);
             return;
         }

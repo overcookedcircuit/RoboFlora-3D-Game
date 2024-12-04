@@ -32,8 +32,6 @@ public class AIController : MonoBehaviour
     void Update()
     {
         StateMachine.Update();
-        Animator.SetFloat("CharacterSpeed", Agent.velocity.magnitude);
-        //currentState = StateMachine.GetCurrentStateType();
     }
 
 

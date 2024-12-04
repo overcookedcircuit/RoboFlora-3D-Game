@@ -5,14 +5,17 @@ public class HeavyWeapon : GunBehavior
 {
     private float currentCharge;
     public float chargeNeeded;
-    public float laserDuration = 0.85f;
+    public float laserDuration = 0.65f;
 
     public GameObject beam;
+    public GameObject triggerBeam;
+    public Transform beamPosition;
     Ray ray;
     RaycastHit rayHit;
 
     void Start(){
         beam.SetActive(false);
+        triggerBeam.SetActive(false);
         currentCharge = 0;
         chargeNeeded = 3;
         isFiring = false;
@@ -37,9 +40,13 @@ public class HeavyWeapon : GunBehavior
     }
 
     IEnumerator ShootLaser(){
+        beam.transform.position = beamPosition.position;
         beam.SetActive(true);
+        triggerBeam.transform.position = beamPosition.position;
+        triggerBeam.SetActive(true);
         yield return new WaitForSeconds(laserDuration);
         beam.SetActive(false);
+        triggerBeam.SetActive(false);
     }
     public override void StopFiring()
     {

@@ -98,11 +98,12 @@ public class CharacterSwitcher : MonoBehaviour
         if (currentCharacter == "player") currentTransform = player.transform;
         else if (currentCharacter == "bird") currentTransform = bird.transform;
         else if (currentCharacter == "rhino") currentTransform = rhino.transform;
-
+        
         // Determine which character to activate
         if (newCharacter == "player")
         {
             SetPositionAndActivate(player, currentTransform);
+            updateAIControllerTarget(player);
             playerCamera.Priority = 10;
             birdCamera.Priority = 0;
             rhinoCamera.Priority = 0;
@@ -110,6 +111,7 @@ public class CharacterSwitcher : MonoBehaviour
         else if (newCharacter == "bird")
         {
             SetPositionAndActivate(bird, currentTransform);
+            updateAIControllerTarget(bird);
             birdCamera.Priority = 10;
             playerCamera.Priority = 0;
             rhinoCamera.Priority = 0;
@@ -117,13 +119,22 @@ public class CharacterSwitcher : MonoBehaviour
         else if (newCharacter == "rhino")
         {
             SetPositionAndActivate(rhino, currentTransform);
+            updateAIControllerTarget(rhino);
             rhinoCamera.Priority = 10;
             playerCamera.Priority = 0;
             birdCamera.Priority = 0;
         }
-
+        
         // Update the current character
         currentCharacter = newCharacter;
+    }
+
+    void updateAIControllerTarget(GameObject target){
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemies){
+            var aiController = enemy.GetComponent<AIController>();
+            aiController.Player = target.transform;
+        }
     }
 
     void SetPositionAndActivate(GameObject newCharacter, Transform previousTransform)
