@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public abstract class EnemyBaseBehavior : MonoBehaviour
 {
     public int health;
+    public int maxHealth;
     public int speed;
 
     public abstract void GetHurt(int damage);

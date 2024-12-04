@@ -7,16 +7,15 @@ using UnityEngine.AI;
 public class BigBossScript : EnemyBaseBehavior
 {
     private bool hitPlayer;
+    public HealthBar healthBar; // Reference to the HealthBar component
+
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = 100;
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth); // Initialize the health bar
         hitPlayer = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // private void OnCollisionEnter(Collision collision)
@@ -26,16 +25,18 @@ public class BigBossScript : EnemyBaseBehavior
     //     }
     // }
     private void OnTriggerStay(Collider other)
-    {   
+    {
         //If boss hit player
-        if(other.gameObject.tag == "Player" && hitPlayer == true){
+        if (other.gameObject.tag == "Player" && hitPlayer == true)
+        {
             ContactPlayer(other);
         }
         Debug.Log(other.gameObject.name);
-        
+
     }
 
-    public void ContactPlayer(Collider other){
+    public void ContactPlayer(Collider other)
+    {
         other.gameObject.GetComponent<Player>().TakeDamage(50);
         Animator animator = other.gameObject.GetComponent<Animator>();
         animator.ResetTrigger("isHit");
@@ -49,17 +50,22 @@ public class BigBossScript : EnemyBaseBehavior
         DisableHitPlayer();
     }
 
-    public void EnableHitPlayer(){
+    public void EnableHitPlayer()
+    {
         hitPlayer = true;
     }
 
-    public void DisableHitPlayer(){
+    public void DisableHitPlayer()
+    {
         hitPlayer = false;
     }
 
-    public override void GetHurt(int damage){
+    public override void GetHurt(int damage)
+    {
         this.health -= damage;
-        if(health <= 0){
+        healthBar.SetHealth(health); // Update the health bar
+        if (health <= 0)
+        {
             Die();
         }
         Debug.Log(this.health);
