@@ -2049,13 +2049,17 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 476564876}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 908938985942228091, guid: 68decc2f18f247b449d883449ba2063c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5829148016402080045, guid: 68decc2f18f247b449d883449ba2063c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224948659}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8745713607020276943, guid: 68decc2f18f247b449d883449ba2063c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1374605799}
     - targetCorrespondingSourceObject: {fileID: 5829148016402080042, guid: 68decc2f18f247b449d883449ba2063c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 803221743}
@@ -2068,6 +2072,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8745713607020276943, guid: 68decc2f18f247b449d883449ba2063c, type: 3}
   m_PrefabInstance: {fileID: 1374605797}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1374605799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374605798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c1a89af1f52bb4aa39bafa5c508a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 20
+  topClamp: 40
+  bottomClamp: -20
+  target: {fileID: 626161469}
 --- !u!1001 &1417008123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2835,10 +2855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f24538d38e22e4cb78c3b5d28ade5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 60
-  topClamp: 40
-  bottomClamp: -20
-  target: {fileID: 2120679914}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
