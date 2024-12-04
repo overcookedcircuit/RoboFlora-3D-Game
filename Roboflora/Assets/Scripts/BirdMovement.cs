@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class BirdMovement : MonoBehaviour
 {
-    public float moveSpeed = 10f;      // Speed for movement
+    public float moveSpeed = 10f;       // Speed for movement
     public float verticalSpeed = 5f;   // Speed for moving up/down (E/Q keys)
     public float rotationSpeed = 500f; // Speed of rotation towards movement direction
     public Transform cameraTransform;  // Reference to the camera transform
+
+    private CharacterController characterController; // CharacterController for physics-based movement
+    private Vector3 yVelocity = Vector3.zero;        // For handling gravity
+
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
 
     void Update()
     {
@@ -15,10 +23,10 @@ public class BirdMovement : MonoBehaviour
     void HandleMovement()
     {
         // Get input for forward/backward movement (W/S)
-        float moveVertical = Input.GetAxis("Vertical"); // W/S for forward/backward
+        float moveVertical = Input.GetAxis("Vertical");
 
         // Get input for left/right movement (A/D)
-        float moveHorizontal = Input.GetAxis("Horizontal"); // A/D for left/right movement
+        float moveHorizontal = Input.GetAxis("Horizontal");
 
         // Get input for ascending (E) and descending (Q)
         float moveUp = 0f;
@@ -44,8 +52,11 @@ public class BirdMovement : MonoBehaviour
         Vector3 movementDirection = (cameraForward * moveVertical + cameraRight * moveHorizontal).normalized;
         movementDirection += Vector3.up * moveUp;
 
-        // Move the bird in the specified direction
-        transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
+        // Combine movement and gravity
+        Vector3 velocity = movementDirection * moveSpeed + yVelocity;
+
+        // Move the character
+        characterController.Move(velocity * Time.deltaTime);
 
         // Rotate the bird to face the movement direction
         if (movementDirection != Vector3.zero)
