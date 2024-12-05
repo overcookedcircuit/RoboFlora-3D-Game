@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,15 +11,20 @@ public class HeavyWeapon : GunBehavior
     public GameObject beam;
     public GameObject triggerBeam;
     public Transform beamPosition;
+
+    public AudioClip[] audioClips;
+    private AudioSource audioSource;
     Ray ray;
     RaycastHit rayHit;
-
     void Start(){
         beam.SetActive(false);
         triggerBeam.SetActive(false);
         currentCharge = 0;
         chargeNeeded = 3;
         isFiring = false;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = audioClips[0];
+        isChargeSound = false;
     }
 
     void Update(){
@@ -33,6 +39,8 @@ public class HeavyWeapon : GunBehavior
             isFiring = true;
             StartCoroutine(ShootLaser());
             currentCharge = 0;
+            audioSource.clip = audioClips[1];
+            audioSource.Play();
         }else{
             Debug.Log("Wait: " + currentCharge);
         }
@@ -45,15 +53,19 @@ public class HeavyWeapon : GunBehavior
         triggerBeam.transform.position = beamPosition.position;
         triggerBeam.SetActive(true);
         yield return new WaitForSeconds(laserDuration);
+        ResetCharge();
         beam.SetActive(false);
         triggerBeam.SetActive(false);
     }
     public override void StopFiring()
     {
         isFiring = false;
+        isChargeSound = false;
     }
 
     public override void ResetCharge(){
+        audioSource.clip = audioClips[0];
         currentCharge = 0;
     }
+
 }

@@ -15,12 +15,13 @@ public class CharacterSwitcher : MonoBehaviour
     public CinemachineVirtualCamera rhinoCamera;     // Reference to the Rhino Virtual Camera
     private string currentCharacter = "player";      // Start with the player as the active character
 
+    public GameObject crosshair;
     [SerializeField] private Image batteryImage; // Drag your Image component here in the Inspector
     [SerializeField] private TMP_Text batteryCountText; // Reference to TMP_Text for countdown
     Sprite[] batterySprites = new Sprite[6];
     private int morphBattery = 5;
     private bool isRecharging = false; // Prevent multiple recharge countdowns
-
+    
     void Start()
     {
         // Initialize by setting the player active and others inactive
@@ -107,6 +108,7 @@ public class CharacterSwitcher : MonoBehaviour
             playerCamera.Priority = 10;
             birdCamera.Priority = 0;
             rhinoCamera.Priority = 0;
+            crosshair.SetActive(true);
         }
         else if (newCharacter == "bird")
         {
@@ -115,6 +117,7 @@ public class CharacterSwitcher : MonoBehaviour
             birdCamera.Priority = 10;
             playerCamera.Priority = 0;
             rhinoCamera.Priority = 0;
+            crosshair.SetActive(false);
         }
         else if (newCharacter == "rhino")
         {
@@ -123,6 +126,7 @@ public class CharacterSwitcher : MonoBehaviour
             rhinoCamera.Priority = 10;
             playerCamera.Priority = 0;
             birdCamera.Priority = 0;
+            crosshair.SetActive(false);
         }
         
         // Update the current character

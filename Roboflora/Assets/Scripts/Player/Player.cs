@@ -27,10 +27,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-           TakeDamage(20);
-        }
-
         if(Input.GetMouseButtonDown(1)){
             HeavyAttack();
         }
@@ -38,6 +34,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             gunController = lightGun.GetComponentInChildren<GunBehavior>();
+            gunController.StopFiring();
             defaultCam.Priority = 10;
             zoomCam.Priority = 0;
         }

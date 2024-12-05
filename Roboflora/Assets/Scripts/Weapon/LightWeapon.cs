@@ -4,13 +4,15 @@ public class LightWeapon : GunBehavior
 {
     Ray ray;
     RaycastHit rayHit;
-
+    private AudioSource audioSource;
     void Start(){
         isFiring = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void StartFiring()
     {
+        audioSource.Play();
         //Get the direction of the crosshair and cast it
         isFiring = true;
         ray.origin = bulletSpawnPoint.position;
@@ -41,5 +43,6 @@ public class LightWeapon : GunBehavior
     }
 
     public override void ResetCharge(){
+
     }
 }

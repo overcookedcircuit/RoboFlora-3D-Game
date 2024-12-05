@@ -18,12 +18,6 @@ public class BigBossScript : EnemyBaseBehavior
         hitPlayer = false;
     }
 
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     if(collision.gameObject.tag == "Player"){
-    //         Debug.Log("I am hitting player");
-    //     }
-    // }
     private void OnTriggerStay(Collider other)
     {
         //If boss hit player

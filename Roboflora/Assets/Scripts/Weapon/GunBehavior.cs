@@ -7,9 +7,12 @@ public abstract class GunBehavior : MonoBehaviour{
     public GameObject bulletImpactEffect;
     public TrailRenderer trailRenderer;
 
+    public bool isChargeSound;
+
     public abstract void StartFiring();
 
     public abstract void StopFiring();
 
     public abstract void ResetCharge();
+
 }
