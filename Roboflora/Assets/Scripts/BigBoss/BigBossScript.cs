@@ -12,7 +12,6 @@ public class BigBossScript : EnemyBaseBehavior
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 100;
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth); // Initialize the health bar
         hitPlayer = false;
