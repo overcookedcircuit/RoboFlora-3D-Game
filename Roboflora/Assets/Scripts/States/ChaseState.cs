@@ -15,8 +15,10 @@ public class ChaseState : IState
     {
         aiController.Animator.SetBool("isChasing", true);
         aiController.Animator.SetBool("isAttacking", false);
+        aiController.Animator.SetBool("isThrowing", false);
         aiController.Agent.speed = aiController.chasingSpeed;
-        Debug.Log("Boss chasing");
+        aiController.isThrowDone = false;
+        Debug.Log("Chasing");
         // No animations, so no need to set any animator parameters
     }
 
@@ -26,6 +28,11 @@ public class ChaseState : IState
         {
             aiController.Agent.speed = 2;
             aiController.StateMachine.TransitionToState(StateType.Patrol);
+            return;
+        }
+
+        if(aiController.canThrow){
+            aiController.StateMachine.TransitionToState(StateType.Throw);
             return;
         }
 

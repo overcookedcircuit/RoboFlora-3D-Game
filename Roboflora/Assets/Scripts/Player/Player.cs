@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public GameObject heavyGun;
     private GunBehavior gunController;
 
-    public Transform respawnLocation;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -51,9 +51,6 @@ public class Player : MonoBehaviour
     }
 
     void Die(){
-        //this.gameObject.SetActive(false);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        this.transform.position = respawnLocation.position;
         currentHealth = 100;
         healthBar.SetHealth(currentHealth);
     }

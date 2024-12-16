@@ -7,5 +7,6 @@ public enum StateType
     Idle,
     Patrol,
     Chase,
-    Attack
+    Attack,
+    Throw
 }

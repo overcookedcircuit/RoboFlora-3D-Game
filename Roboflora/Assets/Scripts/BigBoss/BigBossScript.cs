@@ -9,6 +9,11 @@ public class BigBossScript : EnemyBaseBehavior
     private bool hitPlayer;
     public HealthBar healthBar; // Reference to the HealthBar component
 
+    public GameObject rock;
+    public GameObject rockToThrow;
+
+    public Transform playerTransform;
+    public float launchVelocity = 700f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +29,6 @@ public class BigBossScript : EnemyBaseBehavior
         {
             ContactPlayer(other);
         }
-        Debug.Log(other.gameObject.name);
-
     }
 
     public void ContactPlayer(Collider other)
@@ -61,11 +64,32 @@ public class BigBossScript : EnemyBaseBehavior
         {
             Die();
         }
-        Debug.Log("HEALTH: " +this.health);
     }
 
     public override void Die()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void EnableRock(){
+        //ROCK DEFAULT POSITION x=0, y =1.13, Z = 1.37
+        rock.SetActive(true);
+    }
+
+
+    public void ThrowRock(){
+        rock.SetActive(false);
+
+         // Instantiate the rock to throw at the rock placeholder's position
+        GameObject ball = Instantiate(rockToThrow, rock.transform.position, Quaternion.identity);
+
+
+        Rigidbody rb = ball.GetComponent<Rigidbody>();
+                                                     
+          // Calculate the direction toward the player's location
+        Vector3 direction = (playerTransform.position - transform.position).normalized;
+
+        // Add force to throw the rock toward the player
+        rb.AddForce(direction * launchVelocity);
     }
 }

@@ -17,6 +17,8 @@ public class PatrolState : IState
         Debug.Log("Boss Patrol");
         aiController.Animator.SetBool("isMoving", true);
         aiController.Animator.SetBool("isChasing", false);
+        aiController.Animator.SetBool("isThrowing", false);
+        aiController.isThrowDone = false;
         MoveToNextWaypoint();
     }
 

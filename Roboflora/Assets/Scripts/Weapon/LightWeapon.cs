@@ -17,6 +17,7 @@ public class LightWeapon : GunBehavior
         isFiring = true;
         ray.origin = bulletSpawnPoint.position;
         ray.direction = bulletEndPoint.destination - bulletSpawnPoint.position;
+        Debug.Log("End Point: "  + bulletEndPoint.destination);
         var tracer = Instantiate(trailRenderer, ray.origin, Quaternion.identity);
         tracer.AddPosition(ray.origin);
 

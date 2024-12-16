@@ -14,8 +14,10 @@ public class AIController : MonoBehaviour
     public LayerMask PlayerLayer;
     public LayerMask obstacleMask; // Assign this in the Inspector to include walls, terrain, etc.
     public StateType currentState;
-    public Transform raycastOrigin;
 
+    public int throwChance; 
+    public bool canThrow;
+    public bool isThrowDone;
     public float chasingSpeed;
 
     void Start()
@@ -27,34 +29,45 @@ public class AIController : MonoBehaviour
         StateMachine.AddState(new IdleState(this));
         StateMachine.AddState(new PatrolState(this));
         StateMachine.AddState(new ChaseState(this));
-        StateMachine.AddState(new AttackState(this)); // Add the new AttackState
+        StateMachine.AddState(new AttackState(this));
+        StateMachine.AddState(new ThrowState(this)); // Add the new AttackState
         StateMachine.TransitionToState(StateType.Idle);
     }
 
     void Update()
     {
         StateMachine.Update();
-    }
 
+        throwChance = Random.Range(1, 100);
+    }
+    
 
     public bool CanSeePlayer()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
+     
+     
         if (distanceToPlayer <= SightRange)
         {
-            // Direction from NPC to player
-            Vector3 directionToPlayer = (Player.position - transform.position).normalized;
-            float angle = Mathf.Acos(Vector3.Dot(transform.forward, directionToPlayer));
-            if (angle < maxAngle)
-            {
-                // Perform Raycast to check if there's a clear line of sight
-                if (!Physics.Raycast(raycastOrigin.position, directionToPlayer, SightRange))
-                {
-                    // No obstacles in the way
-                    return true;
-                }
+            if(distanceToPlayer > 15 && distanceToPlayer < 35 && throwChance == 1){
+                canThrow = true;
+                Debug.Log("THROWING");
+                return true;
             }
-
+            canThrow = false;
+            // // Direction from NPC to player
+            // Vector3 directionToPlayer = (Player.position - transform.position).normalized;
+            // float angle = Mathf.Acos(Vector3.Dot(transform.forward, directionToPlayer));
+            // if (angle < maxAngle)
+            // {
+            //     // Perform Raycast to check if there's a clear line of sight
+            //     if (!Physics.Raycast(raycastOrigin.position, directionToPlayer, SightRange))
+            //     {
+                    
+            //     }
+            // }
+            // No obstacles in the way
+            return true;
         }
         return false;
     }
@@ -68,5 +81,10 @@ public class AIController : MonoBehaviour
     public void HitPlayer()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ChangeThrowing(){
+        Debug.Log("I AM DONE");
+        isThrowDone = true;
     }
 }
