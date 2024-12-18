@@ -2255,6 +2255,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   lightGun: {fileID: 0}
   heavyGun: {fileID: 0}
+  respawnLocation: {fileID: 0}
 --- !u!114 &247153692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2541,8 +2542,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406969476}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 131.7, y: 6.7352996, z: 93.57165}
+  m_LocalRotation: {x: 0.13629377, y: -0.1748614, z: 0.024448434, w: 0.97480756}
+  m_LocalPosition: {x: 128.29276, y: 4.072814, z: 96.31491}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3424,6 +3425,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1186437541}
   birdCamera: {fileID: 1306158049}
   rhinoCamera: {fileID: 307161085}
+  crosshair: {fileID: 0}
   batteryImage: {fileID: 1500238071}
   batteryCountText: {fileID: 626840689}
 --- !u!4 &1672643313
@@ -3487,6 +3489,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   healthFill: {fileID: 806391430}
   staminaFill: {fileID: 628824184}
+  pauseMenu: {fileID: 0}
   maxHealth: 100
   maxStamina: 100
   health: 100

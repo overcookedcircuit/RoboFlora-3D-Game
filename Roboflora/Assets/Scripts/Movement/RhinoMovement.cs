@@ -92,16 +92,6 @@ public class RhinoMovement : MonoBehaviour
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
-        if (characterController.isGrounded)
-        {
-            ySpeed = -0.5f;
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                ySpeed = jumpSpeed;
-            }
-        }
-
         Vector3 velocity = movementDirection * currentSpeed;
         velocity.y = ySpeed;
 
