@@ -12,31 +12,31 @@ public class LightWeapon : GunBehavior
 
     public override void StartFiring()
     {
-        audioSource.Play();
-        //Get the direction of the crosshair and cast it
+        if (isFiring) return; // Prevent firing repeatedly while already firing.
+
         isFiring = true;
+        audioSource.Play();
+
+        // Set the ray's origin to the bullet spawn point's current position.
         ray.origin = bulletSpawnPoint.position;
+        // Calculate the direction dynamically based on the bullet end point's current position.
         ray.direction = bulletEndPoint.destination - bulletSpawnPoint.position;
-        Debug.Log("End Point: "  + bulletEndPoint.destination);
+        // Instantiate the tracer trail at the updated bullet spawn point position.
         var tracer = Instantiate(trailRenderer, ray.origin, Quaternion.identity);
         tracer.AddPosition(ray.origin);
-
-        if(Physics.Raycast(ray, out rayHit)){
-            var impactEffect = bulletImpactEffect.GetComponent<ParticleSystem>();
-            var main  = impactEffect.main;
-            main.startSize = 1;
-            bulletImpactEffect.transform.position = rayHit.point;
+        tracer.transform.position = ray.origin + ray.direction * bulletEndPoint.maxTargetRange;
+        Destroy(tracer, 1f);
+        if(bulletEndPoint.hitTarget != null){
+            bulletImpactEffect.transform.position = bulletEndPoint.destination;
             bulletImpactEffect.GetComponent<ParticleSystem>().Play();
-
-            tracer.transform.position = rayHit.point;
-            //if Hit GameObject with 'Enemy' Tag, deal damage
-            if(rayHit.transform.gameObject.tag == "Enemy"){
-                rayHit.transform.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(10);
+            
+            if(bulletEndPoint.hitTarget.gameObject.tag == "Enemy"){
+                bulletEndPoint.hitTarget.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(10);
             }
-        }else{
-            tracer.transform.position = ray.origin + ray.direction * bulletEndPoint.maxTargetRange;
-        }
+        }  
+        
     }
+
 
     public override void StopFiring()
     {

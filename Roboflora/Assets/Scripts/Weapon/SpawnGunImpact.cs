@@ -11,22 +11,25 @@ public class SpawnGunImpact : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        int numOfContact = collision.contactCount;
-        ContactPoint[] contactPoints = new ContactPoint[numOfContact];
-        collision.GetContacts(contactPoints);
+        // int numOfContact = collision.contactCount;
+        // ContactPoint[] contactPoints = new ContactPoint[numOfContact];
+        // collision.GetContacts(contactPoints);
 
-        if(collision.gameObject.tag == "Enemy")
-            collision.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(50);
+        // if(collision.gameObject.tag == "Enemy")
+        //     collision.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(50);
 
-        foreach (ContactPoint cp in contactPoints)
-        {
-            var impactEffect = bulletImpactEffect.GetComponent<ParticleSystem>();
-            var main  = impactEffect.main;
-            main.startSize = 5;
-            // Instantiate a new bullet impact effect at each contact point
-            GameObject impact = Instantiate(bulletImpactEffect, cp.point, Quaternion.LookRotation(cp.normal));
-            impact.GetComponent<ParticleSystem>().Play();
-            Destroy(impact, 1f); 
-        }
+        // foreach (ContactPoint cp in contactPoints)
+        // {
+        //     var impactEffect = bulletImpactEffect.GetComponent<ParticleSystem>();
+        //     var main  = impactEffect.main;
+        //     main.startSize = 5;
+        //     // Instantiate a new bullet impact effect at each contact point
+           
+        //     if(collision.gameObject.name != "TriggerBeam"){
+        //         GameObject impact = Instantiate(bulletImpactEffect, cp.point, Quaternion.LookRotation(cp.normal));
+        //         impact.GetComponent<ParticleSystem>().Play();
+        //         Destroy(impact, 1f); 
+        //     }
+        // }
     }
 }

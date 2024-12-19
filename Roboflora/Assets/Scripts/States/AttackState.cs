@@ -14,7 +14,6 @@ public class AttackState : IState
 
     public void Enter()
     {
-        Debug.Log("Boss Attack Player");
         aiController.Animator.SetBool("isAttacking", true);
         aiController.Agent.isStopped = true; // Stop the AI agent movement
     }

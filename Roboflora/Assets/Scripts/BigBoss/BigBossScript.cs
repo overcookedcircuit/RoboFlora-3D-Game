@@ -14,12 +14,15 @@ public class BigBossScript : EnemyBaseBehavior
 
     public Transform playerTransform;
     public float launchVelocity = 700f;
+
+    private ParticleSystem dieEffect;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth); // Initialize the health bar
         hitPlayer = false;
+        dieEffect = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -68,7 +71,12 @@ public class BigBossScript : EnemyBaseBehavior
 
     public override void Die()
     {
-        this.gameObject.SetActive(false);
+        SkinnedMeshRenderer[] skins = GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach(SkinnedMeshRenderer skin in skins){
+            skin.enabled = false;
+        }
+        dieEffect.Play();
+        Destroy(this.gameObject, 1f);
     }
 
     public void EnableRock(){

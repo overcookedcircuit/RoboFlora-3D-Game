@@ -41,10 +41,12 @@ public class PlayerManager : MonoBehaviour
     public void SetMaxHealth(float health)
     {
         this.health = health;
-        healthSlider.maxValue = health;
-        healthSlider.value = health;
-
-        healthFill.color = healthGradient.Evaluate(1f);
+        if(healthSlider != null){
+            healthSlider.maxValue = health;
+            healthSlider.value = health;
+            healthFill.color = healthGradient.Evaluate(1f);
+        }
+       
     }
 
     public void SetHealth(float health)
@@ -72,7 +74,6 @@ public class PlayerManager : MonoBehaviour
     {
         SetMaxHealth(maxHealth);
         SetStamina(maxStamina);
-        
         Play();
     }
 

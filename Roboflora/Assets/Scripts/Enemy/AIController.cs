@@ -84,7 +84,6 @@ public class AIController : MonoBehaviour
     }
 
     public void ChangeThrowing(){
-        Debug.Log("I AM DONE");
         isThrowDone = true;
     }
 }

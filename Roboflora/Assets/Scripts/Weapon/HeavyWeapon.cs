@@ -8,16 +8,16 @@ public class HeavyWeapon : GunBehavior
     public float chargeNeeded;
     public float laserDuration = 0.65f;
 
-    public GameObject beam;
     public GameObject triggerBeam;
     public Transform beamPosition;
+
+    public ChargeBar chargeBar;
 
     public AudioClip[] audioClips;
     private AudioSource audioSource;
     Ray ray;
     RaycastHit rayHit;
     void Start(){
-        beam.SetActive(false);
         triggerBeam.SetActive(false);
         currentCharge = 0;
         chargeNeeded = 3;
@@ -25,12 +25,15 @@ public class HeavyWeapon : GunBehavior
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioClips[0];
         isChargeSound = false;
+  
     }
 
     void Update(){
         //Charge the weapon
         currentCharge += Time.deltaTime;
         currentCharge = Mathf.Clamp(currentCharge, 0, chargeNeeded);
+        if(chargeBar != null)
+            chargeBar.SetCharge((int) currentCharge);
     }
     public override void StartFiring()
     {   
@@ -41,6 +44,7 @@ public class HeavyWeapon : GunBehavior
             currentCharge = 0;
             audioSource.clip = audioClips[1];
             audioSource.Play();
+            chargeBar.ResetChargeBar();
         }else{
             Debug.Log("Wait: " + currentCharge);
         }
@@ -48,13 +52,10 @@ public class HeavyWeapon : GunBehavior
     }
 
     IEnumerator ShootLaser(){
-        beam.transform.position = beamPosition.position;
-        beam.SetActive(true);
         triggerBeam.transform.position = beamPosition.position;
         triggerBeam.SetActive(true);
         yield return new WaitForSeconds(laserDuration);
         ResetCharge();
-        beam.SetActive(false);
         triggerBeam.SetActive(false);
     }
     public override void StopFiring()
@@ -66,6 +67,7 @@ public class HeavyWeapon : GunBehavior
     public override void ResetCharge(){
         audioSource.clip = audioClips[0];
         currentCharge = 0;
+        chargeBar.ResetChargeBar();
     }
 
 }

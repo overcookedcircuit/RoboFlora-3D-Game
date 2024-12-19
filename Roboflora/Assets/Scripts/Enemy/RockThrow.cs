@@ -24,7 +24,6 @@ public class RockThrow : MonoBehaviour
         {
             canHit = false;
             other.gameObject.GetComponent<Player>().TakeDamage(50);
-            Debug.Log(other.gameObject.GetComponent<Player>().currentHealth);
             Animator animator = other.gameObject.GetComponent<Animator>();
             animator.ResetTrigger("isHit");
             animator.SetTrigger("isHit");

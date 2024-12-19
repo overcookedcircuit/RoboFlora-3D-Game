@@ -17,7 +17,6 @@ public class IdleState : IState
     public void Enter()
     {
         idleTimer = 0f;
-        Debug.Log("Boss Idle");
         aiController.Animator.SetBool("isMoving", false);
     }
 

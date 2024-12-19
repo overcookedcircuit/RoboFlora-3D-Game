@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5803322089226192901}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.0072587254, z: 0, w: 0.9999737}
+  m_LocalRotation: {x: 0, y: 0.0072605037, z: 0, w: 0.99997365}
   m_LocalPosition: {x: 2.2797923, y: 4.88, z: 94.19335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7350320730757476461}
   - {fileID: 2580518309792708087}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -4.55, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.832, z: 0}
 --- !u!20 &750807087176337209
 Camera:
   m_ObjectHideFlags: 0
@@ -48,14 +48,14 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -70,7 +70,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 45
+  field of view: 61.927517
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -123,7 +123,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 92fd8d1fc2d7ff9498e2f614a7cf568b, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -218,7 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da684bdf9dfaf684992bef67a68e55f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitTarget: {fileID: 0}
+  maxTargetRange: 50
   destination: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  bulletImpactEffect: {fileID: 0}
 --- !u!1 &7609256162822160796
 GameObject:
   m_ObjectHideFlags: 0

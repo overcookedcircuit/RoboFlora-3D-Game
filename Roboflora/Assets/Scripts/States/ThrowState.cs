@@ -14,17 +14,15 @@ public class ThrowState : IState
 
     public void Enter()
     {
-        Debug.Log("Boss Throwing Rock");
         aiController.Animator.SetBool("isThrowing", true);
         aiController.Agent.isStopped = true; // Stop the AI agent movement
     }
 
     public void Execute()
     {
-        // Check if the player is within attack range
+        // Check if the player is Done with Throwing animation
         if (aiController.isThrowDone)
         {
-            Debug.Log("donzo");
             aiController.StateMachine.TransitionToState(StateType.Patrol);
             return;
         }
@@ -34,8 +32,6 @@ public class ThrowState : IState
     public void Exit()
     {
         aiController.Agent.isStopped = false;
-        aiController.isThrowDone = false; // Resume the AI agent movement
-        Debug.Log("isThrowDone: " + aiController.isThrowDone);
-        
+        aiController.isThrowDone = false; // Resume the AI agent movement  
     }
 }

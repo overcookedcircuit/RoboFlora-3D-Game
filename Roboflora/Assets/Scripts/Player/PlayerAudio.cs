@@ -27,4 +27,9 @@ public class PlayerAudio : MonoBehaviour
         audioSource.clip = audioClips[1];
         audioSource.Play();
     }
+
+    public void PlayHurtSound(){
+        audioSource.clip = audioClips[2];
+        audioSource.Play();
+    }
 }

@@ -18,7 +18,6 @@ public class ChaseState : IState
         aiController.Animator.SetBool("isThrowing", false);
         aiController.Agent.speed = aiController.chasingSpeed;
         aiController.isThrowDone = false;
-        Debug.Log("Chasing");
         // No animations, so no need to set any animator parameters
     }
 

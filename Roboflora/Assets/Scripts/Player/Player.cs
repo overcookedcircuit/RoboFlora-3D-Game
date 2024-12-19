@@ -11,10 +11,13 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
-
+    public GameObject chargeBar;
     public GameObject lightGun;
     public GameObject heavyGun;
+
+    public MusicManager musicManager;
     private GunBehavior gunController;
+
 
   
     // Start is called before the first frame update
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
             gunController.StopFiring();
             defaultCam.Priority = 10;
             zoomCam.Priority = 0;
+            chargeBar.SetActive(false);
         }
         Shooting();
     }
@@ -47,12 +51,14 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if(currentHealth <= 0){
             Die();
+        }else{
+            GetComponent<PlayerAudio>().PlayHurtSound();
         }
     }
 
     void Die(){
-        currentHealth = 100;
-        healthBar.SetHealth(currentHealth);
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name); 
     }
     void Shooting(){
         if(Input.GetButtonDown("Fire1")){
@@ -65,6 +71,7 @@ public class Player : MonoBehaviour
     }
 
     void HeavyAttack(){
+        chargeBar.SetActive(true);
         gunController = heavyGun.GetComponentInChildren<GunBehavior>();
         gunController.ResetCharge();
         defaultCam.Priority = 0;

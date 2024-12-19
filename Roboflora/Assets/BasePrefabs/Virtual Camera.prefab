@@ -52,7 +52,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookSpeed: 5
-  zoomSpeed: 10
+  zoomSpeed: 20
   minFOV: 5
   maxFOV: 10
 --- !u!114 &8480554074122917773
@@ -198,7 +198,7 @@ MonoBehaviour:
   ShoulderOffset: {x: 0.5, y: 1.4, z: 0}
   VerticalArmLength: 0.4
   CameraSide: 1
-  CameraDistance: 6.7
+  CameraDistance: 1.5
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 0

@@ -14,7 +14,6 @@ public class PatrolState : IState
 
     public void Enter()
     {
-        Debug.Log("Boss Patrol");
         aiController.Animator.SetBool("isMoving", true);
         aiController.Animator.SetBool("isChasing", false);
         aiController.Animator.SetBool("isThrowing", false);
@@ -26,7 +25,6 @@ public class PatrolState : IState
     {
         if (aiController.CanSeePlayer())
         {
-            Debug.Log("See Player");
             aiController.StateMachine.TransitionToState(StateType.Chase);
             return;
         }

@@ -14,9 +14,13 @@ public class TriggerSpawnGunImpact : MonoBehaviour
         var main  = impactEffect.main;
         main.startSize = 5;
         // Instantiate a new bullet impact effect at each contact point
-        GameObject impact = Instantiate(bulletImpactEffect, collisionPoint, Quaternion.identity);
-        impact.GetComponent<ParticleSystem>().Play();
-        Destroy(impact, 1f);
+        if(other.gameObject.name != "Beam"){
+            GameObject impact = Instantiate(bulletImpactEffect, collisionPoint, Quaternion.identity);
+            impact.GetComponent<ParticleSystem>().Play();
+            Destroy(impact, 1f);
+        }
+        
+        
 
         if(other.gameObject.tag == "Enemy")
             other.gameObject.GetComponent<EnemyBaseBehavior>().GetHurt(50);
