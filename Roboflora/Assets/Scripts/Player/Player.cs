@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public CinemachineVirtualCamera zoomCam;
     public CinemachineBrain cinemaBrain;
     public int maxHealth = 100;
-    public int currentHealth;
+    public float currentHealth;
     public HealthBar healthBar;
     public GameObject chargeBar;
     public GameObject lightGun;
@@ -31,6 +31,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentHealth < maxHealth) {
+            currentHealth += 0.1f;
+            healthBar.SetHealth(currentHealth);
+        }
+
         if(Input.GetMouseButtonDown(1)){
             HeavyAttack();
         }

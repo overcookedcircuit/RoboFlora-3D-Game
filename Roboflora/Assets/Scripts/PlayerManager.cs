@@ -51,6 +51,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SetHealth(float health)
     {
+        Debug.Log("PLAYERMANAGER IS BEING USED");
         this.health = health;
         healthSlider.value = health;
         healthFill.color = healthGradient.Evaluate(healthSlider.normalizedValue);
