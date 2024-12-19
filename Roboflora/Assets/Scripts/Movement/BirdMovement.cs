@@ -58,8 +58,8 @@ public class BirdMovement : MonoBehaviour
         // Move the character
         characterController.Move(velocity * Time.deltaTime);
 
-        // Rotate the bird to face the movement direction
-        if (movementDirection != Vector3.zero)
+        // Rotate the bird to face the movement direction when not holding the right mouse button
+        if (movementDirection != Vector3.zero && !Input.GetMouseButton(1))
         {
             Quaternion toRotation = Quaternion.LookRotation(movementDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);

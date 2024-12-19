@@ -46,7 +46,7 @@ public class CharacterSwitcher : MonoBehaviour
         {
             if (PlayerManager.Instance.stamina > 0)
             {
-                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina - 0.05f);
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina - 0.2f);
             }
             else
             {
