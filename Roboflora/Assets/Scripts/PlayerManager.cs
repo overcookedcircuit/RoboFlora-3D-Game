@@ -15,8 +15,8 @@ public class PlayerManager : MonoBehaviour
     public Image healthFill;
     public Image staminaFill;
 
-    public GameObject pauseMenu;
-    private bool gamePaused = false;
+    public GameObject pauseMenu; // Pause menu object
+    private bool gamePaused;
 
     // Player stats
     public float maxHealth = 100;
@@ -38,68 +38,120 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // Dynamically assign the pause menu if not set in the Inspector
+        Time.timeScale = 1;
+        gamePaused = false;
+        if (pauseMenu == null)
+        {
+            pauseMenu = GameObject.FindWithTag("PauseMenu");
+            if (pauseMenu == null)
+            {
+                Debug.LogError("Pause Menu not found! Please assign it in the Inspector or ensure it has the 'PauseMenu' tag.");
+            }
+        }
+
+        SetMaxHealth(maxHealth);
+        SetStamina(maxStamina);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            if (gamePaused)
+            {
+                Play();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+
     public void SetMaxHealth(float health)
     {
         this.health = health;
-        if(healthSlider != null){
+        if (healthSlider != null)
+        {
             healthSlider.maxValue = health;
             healthSlider.value = health;
             healthFill.color = healthGradient.Evaluate(1f);
         }
-       
     }
 
     public void SetHealth(float health)
     {
         Debug.Log("PLAYERMANAGER IS BEING USED");
         this.health = health;
-        healthSlider.value = health;
-        healthFill.color = healthGradient.Evaluate(healthSlider.normalizedValue);
+        if (healthSlider != null)
+        {
+            healthSlider.value = health;
+            healthFill.color = healthGradient.Evaluate(healthSlider.normalizedValue);
+        }
     }
 
     public void SetMaxStamina(float stamina)
     {
         this.stamina = stamina;
-        staminaSlider.maxValue = stamina;
-        staminaSlider.value = stamina;
+        if (staminaSlider != null)
+        {
+            staminaSlider.maxValue = stamina;
+            staminaSlider.value = stamina;
+        }
     }
 
     public void SetStamina(float stamina)
     {
         this.stamina = stamina;
-        staminaSlider.value = stamina;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetMaxHealth(maxHealth);
-        SetStamina(maxStamina);
-        Play();
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == false)
+        if (staminaSlider != null)
         {
-            Time.timeScale = 0;
-            gamePaused = true;
-            pauseMenu.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == true)
-        {
-            Play();
+            staminaSlider.value = stamina;
         }
     }
 
     public void Play()
-    {   
-        Time.timeScale = 1; 
+    {
+        Debug.Log("PLAY BUTTON IS CLICKED");
+        Debug.Log($"Before Play: gamePaused={gamePaused}");
+        gamePaused = false;
+
+        if (pauseMenu == null)
+        {
+            pauseMenu = GameObject.FindWithTag("PauseMenu");
+            if (pauseMenu == null)
+            {
+                Debug.LogError("Pause Menu not found! Please assign it in the Inspector or ensure it has the 'PauseMenu' tag.");
+            }
+        }
+
+        Time.timeScale = 1;
         Cursor.visible = false;
-        pauseMenu.SetActive(false);
+        pauseMenu.SetActive(false); // Disable the pause menu
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log($"After Play: gamePaused={gamePaused}");
+    }
+
+    public void Pause()
+    {
+        Debug.Log("PAUSE BUTTON IS CLICKED");
+        Debug.Log($"Before Pause: gamePaused={gamePaused}");
+
+        Time.timeScale = 0;
+        gamePaused = true;
+
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+        }
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        Debug.Log($"After Pause: gamePaused={gamePaused}");
     }
 
     public void Quit()
