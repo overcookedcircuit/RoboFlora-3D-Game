@@ -25,6 +25,7 @@ public class MusicManager : MonoBehaviour
             audioSource.Play();
         }else if(scene.name == "world1"){
             audioSource.clip = audioClips[2];
+            audioSource.volume = 0.085f;
             audioSource.Play();
         }
     }

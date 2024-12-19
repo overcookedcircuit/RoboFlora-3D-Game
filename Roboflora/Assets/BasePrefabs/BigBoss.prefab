@@ -477,13 +477,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  maxHealth: 100
+  maxHealth: 1000
   speed: 10
   healthBar: {fileID: 8160473278508882313}
   rock: {fileID: 199787612901732457}
   rockToThrow: {fileID: 1625781416467160, guid: 71d9ac8f41d09d143a75c692c68b1ce6, type: 3}
   playerTransform: {fileID: 0}
-  launchVelocity: 1500
+  launchVelocity: 1250
 --- !u!114 &8160473278508882313
 MonoBehaviour:
   m_ObjectHideFlags: 0

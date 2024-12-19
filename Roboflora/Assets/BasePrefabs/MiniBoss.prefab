@@ -576,15 +576,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 554.1545
+      value: 544.6069
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.46
+      value: 45.906
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 328.14
+      value: 657.82434
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1607,9 +1607,10 @@ MonoBehaviour:
   Waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   Player: {fileID: 0}
-  SightRange: 20
-  maxAngle: 60
+  SightRange: 40
+  maxAngle: 75
   AttackRange: 2
   PlayerLayer:
     serializedVersion: 2
@@ -1621,7 +1622,7 @@ MonoBehaviour:
   throwChance: 0
   canThrow: 0
   isThrowDone: 0
-  chasingSpeed: 3
+  chasingSpeed: 8
 --- !u!195 &5963535664837928069
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1641,7 +1642,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.03
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &7678217332096019931
@@ -1701,8 +1702,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 100
-  speed: 0
+  maxHealth: 500
+  speed: 2
   healthBar: {fileID: 890207919897659301}
   weapon: {fileID: 6543875546965385182}
 --- !u!82 &3098528316747000241
