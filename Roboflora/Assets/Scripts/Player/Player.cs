@@ -19,8 +19,8 @@ public class Player : PlayerBaseBehavior
     private GunBehavior gunController;
     public PlayerManager playerManager;
 
-    
-  
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +32,14 @@ public class Player : PlayerBaseBehavior
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth < maxHealth) {
+        if (currentHealth < maxHealth)
+        {
             currentHealth += 0.1f;
             healthBar.SetHealth(currentHealth);
         }
 
-        if(Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButtonDown(1))
+        {
             HeavyAttack();
         }
 
@@ -50,20 +52,26 @@ public class Player : PlayerBaseBehavior
             chargeBar.SetActive(false);
             GetComponent<PlayerMovement>().cameraTransform = defaultCam.transform;
         }
-        Shooting();
+        if (Time.timeScale != 0) {
+            Shooting();
+        }
     }
 
-    
-    void Shooting(){
-        if(Input.GetButtonDown("Fire1")){
+
+    void Shooting()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
             gunController.StartFiring();
         }
 
-        if(Input.GetButtonUp("Fire1")){
+        if (Input.GetButtonUp("Fire1"))
+        {
             gunController.StopFiring();
         }
     }
-    void HeavyAttack(){
+    void HeavyAttack()
+    {
         chargeBar.SetActive(true);
         chargeBar.GetComponent<ChargeBar>().SetMaxCharge(3);
         gunController = heavyGun.GetComponentInChildren<GunBehavior>();
@@ -77,16 +85,17 @@ public class Player : PlayerBaseBehavior
     {
         playerManager.health -= damage;
         playerManager.SetHealth(playerManager.health);
-        if(playerManager.health <= 0){
-            Die();
-        }else{
+        if (playerManager.health <= 0)
+        {
+        }
+        else
+        {
             GetComponent<PlayerAudio>().PlayHurtSound();
         }
     }
 
     public override void Die()
     {
-        Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);
+        playerManager.PlayerDied();
     }
 }

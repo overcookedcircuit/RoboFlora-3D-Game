@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Cinemachine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CharacterSwitcher : MonoBehaviour
 {
@@ -44,9 +45,11 @@ public class CharacterSwitcher : MonoBehaviour
 
         if (currentCharacter == "bird")
         {
-            if (PlayerManager.Instance.stamina > 0)
+            if (PlayerManager.Instance.stamina > 0 )
             {
-                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina - 20f * Time.deltaTime);
+                if (SceneManager.GetActiveScene().name != "Tutorial") {
+                    PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina - 20f * Time.deltaTime);
+                }
             }
             else
             {

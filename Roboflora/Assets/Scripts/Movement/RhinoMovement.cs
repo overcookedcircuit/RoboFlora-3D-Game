@@ -125,7 +125,28 @@ public class RhinoController : MonoBehaviour
         bool isIdle = movementDirection.magnitude == 0f;
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
 
-        float currentSpeed = isRunning ? runSpeed : walkSpeed;
+        float currentSpeed;
+
+        if (isRunning)
+        {
+            if (PlayerManager.Instance.stamina > 0)
+            {
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina - 10f * Time.deltaTime);
+                currentSpeed = runSpeed;
+            }
+            else
+            {
+                currentSpeed = walkSpeed;
+            }
+        }
+        else
+        {
+            if (PlayerManager.Instance.stamina < PlayerManager.Instance.maxStamina)
+            {
+                PlayerManager.Instance.SetStamina(PlayerManager.Instance.stamina + 20f * Time.deltaTime);
+            }
+            currentSpeed = walkSpeed;
+        }
 
         animator.SetFloat("RhinoSpeed", isIdle ? 0f : currentSpeed, 0.1f, Time.deltaTime);
         animator.SetBool("isWalking", !isIdle);
@@ -152,7 +173,7 @@ public class RhinoController : MonoBehaviour
         float elapsedTime = 0f;
 
         float chargeSpeed = Mathf.Max(currentChargeSpeed, runSpeed + 2);
-        Vector3 chargeDirection = transform.forward;
+        Vector3 correctedChargeDirection = Quaternion.Euler(0, -90, 0) * transform.forward;
 
         animator.SetBool("isWalking", true);
 
@@ -160,7 +181,7 @@ public class RhinoController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            Vector3 velocity = chargeDirection * chargeSpeed;
+            Vector3 velocity = correctedChargeDirection * chargeSpeed;
             velocity.y = ySpeed;
             characterController.Move(velocity * Time.deltaTime);
 
