@@ -22,15 +22,16 @@ public class RhinoMovement : MonoBehaviour
     public float chargeDamage = 50f; // Damage dealt during charge
     public float chargeCollisionRadius = 1.5f; // Radius for detecting collisions during charge
 
+    public GameObject chargeBar;
     private float chargeRate; // Dynamically calculated charge rate
     private float chargeButtonHoldTime = 0f; // Tracks how long the button is held
-
+    
     void Start()
     {
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         currentChargeSpeed = chargeSpeedStart;
-
+        
         // Calculate the charge rate to reach max speed in maxChargeDuration
         chargeRate = (chargeSpeedMax - chargeSpeedStart) / maxChargeDuration;
         Debug.Log("RhinoMovement initialized. Calculated charge rate: " + chargeRate);
@@ -47,9 +48,12 @@ public class RhinoMovement : MonoBehaviour
         // Handle charging
         if (Input.GetMouseButton(2) || Input.GetKey(KeyCode.C)) // Middle mouse button or 'C' key held down
         {
+            chargeBar.GetComponent<ChargeBar>().SetMaxCharge((int)chargeSpeedMax);
             chargeButtonHoldTime += Time.deltaTime; // Accumulate button hold time
             isCharging = true;
             currentChargeSpeed = Mathf.Clamp(currentChargeSpeed + chargeRate * Time.deltaTime, chargeSpeedStart, chargeSpeedMax);
+            chargeBar.SetActive(true);
+            chargeBar.GetComponent<ChargeBar>().SetCharge((int) currentChargeSpeed);
             animator.SetFloat("RhinoSpeed", currentChargeSpeed, 0.2f, Time.deltaTime);
             animator.SetBool("isWalking", true);
             Debug.Log("Charging... Current Charge Speed: " + currentChargeSpeed);
@@ -58,10 +62,12 @@ public class RhinoMovement : MonoBehaviour
         {
             Debug.Log("Charge button released. Executing charge.");
             float chargeDuration = Mathf.Min(chargeButtonHoldTime, maxChargeDuration); // Calculate charge duration
+            chargeBar.GetComponent<ChargeBar>().SetCharge(0);
+            chargeBar.SetActive(false);
             StartCoroutine(ExecuteCharge(chargeDuration));
             isCharging = false;
             chargeButtonHoldTime = 0f; // Reset button hold time
-            currentChargeSpeed = chargeSpeedStart; // Reset charge speed for the next charge
+            currentChargeSpeed = chargeSpeedStart; // Reset charge speed for the next charge   
         }
         else
         {
@@ -176,7 +182,8 @@ public class RhinoMovement : MonoBehaviour
             {
                 EnemyBaseBehavior enemyBehavior = collider.GetComponent<EnemyBaseBehavior>();
                 if (enemyBehavior != null)
-                {
+                {   
+                    GetComponent<AudioSource>().Play();
                     enemyBehavior.GetHurt((int)chargeDamage);
                     Debug.Log("Damaged enemy: " + collider.name + " for " + chargeDamage + " damage.");
                 }

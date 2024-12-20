@@ -22,8 +22,7 @@ public class HitPlayer : MonoBehaviour
         //If boss hit player
         if (other.gameObject.tag == "Player" && isHit)
         {
-            other.gameObject.GetComponent<Player>().TakeDamage(30);
-            Debug.Log(other.gameObject.GetComponent<Player>().currentHealth);
+            other.gameObject.GetComponent<PlayerBaseBehavior>().TakeDamage(30);
             Animator animator = other.gameObject.GetComponent<Animator>();
             animator.ResetTrigger("isHit");
             animator.SetTrigger("isHit");

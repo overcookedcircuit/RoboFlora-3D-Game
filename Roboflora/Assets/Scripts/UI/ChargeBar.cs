@@ -30,4 +30,8 @@ public class ChargeBar : MonoBehaviour
             lightning.enabled = true;
         }
     }
+
+    public void SetMaxCharge(int charge){
+        slider.maxValue = charge;
+    }
 }
