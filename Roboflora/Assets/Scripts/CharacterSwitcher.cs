@@ -138,6 +138,9 @@ public class CharacterSwitcher : MonoBehaviour
         foreach(GameObject enemy in enemies){
             var aiController = enemy.GetComponent<AIController>();
             aiController.Player = target.transform;
+            if(enemy.GetComponent<BigBossScript>() != null){
+                enemy.GetComponent<BigBossScript>().playerTransform = target.transform;
+            }
         }
     }
 

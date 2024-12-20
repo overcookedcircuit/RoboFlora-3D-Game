@@ -23,7 +23,7 @@ public class RockThrow : MonoBehaviour
         if (other.gameObject.tag == "Player" && canHit)
         {
             canHit = false;
-            other.gameObject.GetComponent<Player>().TakeDamage(50);
+            other.gameObject.GetComponent<PlayerBaseBehavior>().TakeDamage(50);
             Animator animator = other.gameObject.GetComponent<Animator>();
             animator.ResetTrigger("isHit");
             animator.SetTrigger("isHit");
