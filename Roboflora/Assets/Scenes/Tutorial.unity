@@ -1267,10 +1267,11 @@ MonoBehaviour:
   runSpeed: 10
   rotationSpeed: 500
   jumpSpeed: 5
-  cameraTransform: {fileID: 458376832}
   chargeSpeedStart: 2
   chargeSpeedMax: 7
   maxChargeDuration: 2
+  cameraTransform: {fileID: 458376832}
+  lookSpeed: 5
   chargeDamage: 50
   chargeCollisionRadius: 1.5
   chargeBar: {fileID: 1285296929}
@@ -1673,7 +1674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0721005f269155e4598dd272cbf9e475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSpeed: 5
 --- !u!1 &492551404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1055696601234238, guid: 95fe2533720aeb743ade98ad01dc2812, type: 3}
@@ -2224,7 +2224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0721005f269155e4598dd272cbf9e475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSpeed: 5
 --- !u!1 &765328931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7340031771033960603, guid: bf0db6e2d9ca75541aaade039b1956c1, type: 3}
@@ -2437,6 +2436,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 707052015}
+    - target: {fileID: 3161703400153329597, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5360236862003827736, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       propertyPath: m_Radius
       value: 5
@@ -2526,7 +2529,8 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1699210160832391394, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6671828615880098391, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       insertIndex: -1
@@ -2759,6 +2763,7 @@ MonoBehaviour:
   healthFill: {fileID: 110180508}
   staminaFill: {fileID: 511804873}
   pauseMenu: {fileID: 514956057}
+  deathMenu: {fileID: 0}
   maxHealth: 100
   maxStamina: 100
   health: 100
@@ -2901,6 +2906,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 235369850}
+    - target: {fileID: 3161703400153329597, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5360236862003827736, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       propertyPath: m_Radius
       value: 5
@@ -2986,7 +2995,8 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1699210160832391394, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6671828615880098391, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       insertIndex: -1
@@ -3060,6 +3070,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1894500199}
+    - target: {fileID: 3161703400153329597, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5360236862003827736, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       propertyPath: m_Radius
       value: 5
@@ -3149,7 +3163,8 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1699210160832391394, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6671828615880098391, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       insertIndex: -1
@@ -3583,6 +3598,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2062418417}
+    - target: {fileID: 3161703400153329597, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5360236862003827736, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       propertyPath: m_Radius
       value: 5
@@ -3668,7 +3687,8 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1699210160832391394, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6671828615880098391, guid: 03fcbaf6f2d34c84b9a6f71a4972cf78, type: 3}
       insertIndex: -1
