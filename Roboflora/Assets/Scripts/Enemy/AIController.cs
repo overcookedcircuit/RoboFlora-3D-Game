@@ -50,7 +50,7 @@ public class AIController : MonoBehaviour
      
         if (distanceToPlayer <= SightRange)
         {
-            if(distanceToPlayer > 15 && distanceToPlayer < 35 && throwChance == 1){
+            if(distanceToPlayer > 15 && distanceToPlayer < 35 && throwChance == 1 && canEnemyThrow){
                 canThrow = true;
                 Debug.Log("THROWING");
                 return true;

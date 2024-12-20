@@ -1663,6 +1663,7 @@ GameObject:
   - component: {fileID: 6138668985595561328}
   - component: {fileID: 6122581010384098173}
   - component: {fileID: 1538719505180638705}
+  - component: {fileID: 6865399823804244316}
   m_Layer: 0
   m_Name: Necromancer
   m_TagString: Enemy
@@ -1730,10 +1731,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1759,9 +1760,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Player: {fileID: 0}
-  SightRange: 45
-  maxAngle: 65
-  AttackRange: 20
+  SightRange: 25
+  maxAngle: 50
+  AttackRange: 13
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1834,6 +1835,8 @@ MonoBehaviour:
   maxHealth: 60
   speed: 0
   healthBar: {fileID: 6575329847016425598}
+  audioClips:
+  - {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   dieEffect: {fileID: 7487393965588468015}
   spellEffect: {fileID: 6259369657755833111}
   beam: {fileID: 3229937709091781629}
@@ -1881,6 +1884,102 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 3078426394785313734}
+--- !u!82 &6865399823804244316
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100094}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &783761489044981161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,13 +2169,14 @@ GameObject:
   - component: {fileID: 6524217566908545008}
   - component: {fileID: 8656811663889345875}
   - component: {fileID: 4537956049442091811}
+  - component: {fileID: 9047885381216223263}
   m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5330049970902202737
 Transform:
   m_ObjectHideFlags: 0
@@ -2086,8 +2186,8 @@ Transform:
   m_GameObject: {fileID: 3229937709091781629}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.1, z: 28.5}
-  m_LocalScale: {x: 5, y: 26.002876, z: 5}
+  m_LocalPosition: {x: 0, y: 5, z: 33.3}
+  m_LocalScale: {x: 5, y: 27.620255, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 400094}
@@ -2107,7 +2207,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3229937709091781629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2157,14 +2257,26 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &9047885381216223263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3229937709091781629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a379a766ffc35e949aa968f7c2f2c173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3399806732496862983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,6 +2571,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 400094}
     m_Modifications:
     - target: {fileID: 6146545414153545492, guid: 61753401622c2a947a30e2147430e97d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146545414153545492, guid: 61753401622c2a947a30e2147430e97d, type: 3}
       propertyPath: SizeModule.y.minMaxState
       value: 2
       objectReference: {fileID: 0}
@@ -2568,7 +2684,7 @@ PrefabInstance:
     - target: {fileID: 4545730075028336660, guid: eafb5fe28c005164a92ca42f3f7532a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+      objectReference: {fileID: 2100000, guid: e88ae70fdb7a9234bb51f64e1f7d21d0, type: 2}
     - target: {fileID: 4545730075028336661, guid: eafb5fe28c005164a92ca42f3f7532a7, type: 3}
       propertyPath: m_Name
       value: FlameThrower

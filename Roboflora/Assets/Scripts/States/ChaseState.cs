@@ -16,6 +16,7 @@ public class ChaseState : IState
         aiController.Animator.SetBool("isChasing", true);
         aiController.Animator.SetBool("isAttacking", false);
         aiController.Animator.SetBool("isThrowing", false);
+        aiController.Animator.SetBool("isMoving", false);
         aiController.Agent.speed = aiController.chasingSpeed;
         aiController.isThrowDone = false;
         // No animations, so no need to set any animator parameters
@@ -30,16 +31,18 @@ public class ChaseState : IState
             return;
         }
 
-        if(aiController.canThrow && aiController.canEnemyThrow){
-            aiController.StateMachine.TransitionToState(StateType.Throw);
-            return;
-        }
-
         if (aiController.IsPlayerInAttackRange())
         {
             aiController.StateMachine.TransitionToState(StateType.Attack);
             return;
         }
+
+        if(aiController.canThrow && aiController.canEnemyThrow){
+            aiController.StateMachine.TransitionToState(StateType.Throw);
+            return;
+        }
+
+        
 
         aiController.Agent.destination = aiController.Player.position;
        

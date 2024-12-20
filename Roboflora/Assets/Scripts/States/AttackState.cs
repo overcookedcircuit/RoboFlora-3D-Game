@@ -15,6 +15,7 @@ public class AttackState : IState
     public void Enter()
     {
         aiController.Animator.SetBool("isAttacking", true);
+        aiController.Animator.SetBool("isChasing", false);
         aiController.Agent.isStopped = true; // Stop the AI agent movement
     }
 
