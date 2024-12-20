@@ -6310,6 +6310,10 @@ PrefabInstance:
       propertyPath: m_FocalLength
       value: 28.970562
       objectReference: {fileID: 0}
+    - target: {fileID: 3713589349472705681, guid: c196d3383388e214aac543a05dfaab87, type: 3}
+      propertyPath: m_DefaultBlend.m_Time
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5803322089226192901, guid: c196d3383388e214aac543a05dfaab87, type: 3}
       propertyPath: m_Name
       value: MainCamera
