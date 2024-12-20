@@ -115,8 +115,6 @@ public class PlayerManager : MonoBehaviour
 
     public void Play()
     {
-        Debug.Log("PLAY BUTTON IS CLICKED");
-        Debug.Log($"Before Play: gamePaused={gamePaused}");
         gamePaused = false;
 
         if (pauseMenu == null)
@@ -132,14 +130,10 @@ public class PlayerManager : MonoBehaviour
         Cursor.visible = false;
         pauseMenu.SetActive(false); // Disable the pause menu
         Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log($"After Play: gamePaused={gamePaused}");
     }
 
     public void Pause()
     {
-        Debug.Log("PAUSE BUTTON IS CLICKED");
-        Debug.Log($"Before Pause: gamePaused={gamePaused}");
-
         Time.timeScale = 0;
         gamePaused = true;
 
@@ -150,8 +144,6 @@ public class PlayerManager : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
-        Debug.Log($"After Pause: gamePaused={gamePaused}");
     }
 
     public void Quit()

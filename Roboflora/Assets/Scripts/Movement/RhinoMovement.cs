@@ -56,11 +56,9 @@ public class RhinoMovement : MonoBehaviour
             chargeBar.GetComponent<ChargeBar>().SetCharge((int) currentChargeSpeed);
             animator.SetFloat("RhinoSpeed", currentChargeSpeed, 0.2f, Time.deltaTime);
             animator.SetBool("isWalking", true);
-            Debug.Log("Charging... Current Charge Speed: " + currentChargeSpeed);
         }
         else if (isCharging) // Middle mouse button or 'C' key released
         {
-            Debug.Log("Charge button released. Executing charge.");
             float chargeDuration = Mathf.Min(chargeButtonHoldTime, maxChargeDuration); // Calculate charge duration
             chargeBar.GetComponent<ChargeBar>().SetCharge(0);
             chargeBar.SetActive(false);
@@ -80,13 +78,11 @@ public class RhinoMovement : MonoBehaviour
     {
         if (isExecutingCharge)
         {
-            Debug.Log("Skipping movement handling during charge.");
             return; // Disable movement if the charge is ongoing
         }
 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
-        Debug.Log("Horizontal Input: " + horizontalInput + ", Vertical Input: " + verticalInput);
 
         Vector3 cameraForward = cameraTransform.forward;
         cameraForward.y = 0f;  // Flatten on the Y-axis
@@ -97,7 +93,6 @@ public class RhinoMovement : MonoBehaviour
         cameraRight.Normalize();
 
         Vector3 movementDirection = (cameraForward * verticalInput + cameraRight * horizontalInput).normalized;
-        Debug.Log("Movement Direction: " + movementDirection);
 
         bool isIdle = movementDirection.magnitude == 0f;
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
@@ -118,7 +113,6 @@ public class RhinoMovement : MonoBehaviour
             currentSpeed = walkSpeed;
         }
 
-        Debug.Log("Current Speed: " + currentSpeed);
         animator.SetFloat("RhinoSpeed", isIdle ? 0f : currentSpeed, 0.1f, Time.deltaTime);
         animator.SetBool("isWalking", !isIdle);
 
@@ -150,7 +144,6 @@ public class RhinoMovement : MonoBehaviour
         Vector3 correctedChargeDirection = Quaternion.Euler(0, -90, 0) * transform.forward;
 
         animator.SetBool("isWalking", true);
-        Debug.Log("Charge started. Speed: " + chargeSpeed);
 
         while (elapsedTime < chargeDuration)
         {
@@ -168,7 +161,6 @@ public class RhinoMovement : MonoBehaviour
 
         animator.SetBool("isWalking", false);
         isExecutingCharge = false;
-        Debug.Log("Charge ended.");
     }
 
     void DetectAndDamageEnemies()
@@ -185,6 +177,7 @@ public class RhinoMovement : MonoBehaviour
                 {   
                     GetComponent<AudioSource>().Play();
                     enemyBehavior.GetHurt((int)chargeDamage);
+                    // GetComponent<PlayerAudio>().PlayRhinoAttackSound();
                     Debug.Log("Damaged enemy: " + collider.name + " for " + chargeDamage + " damage.");
                 }
             }

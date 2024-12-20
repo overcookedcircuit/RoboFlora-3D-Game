@@ -15,21 +15,36 @@ public class PlayerAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void playWalkSound(){
+    public void playWalkSound()
+    {
         audioSource.clip = audioClips[0];
         audioSource.Play();
     }
 
-    public void playJumpSound(){
+    public void playJumpSound()
+    {
         audioSource.clip = audioClips[1];
         audioSource.Play();
     }
 
-    public void PlayHurtSound(){
+    public void PlayHurtSound()
+    {
         audioSource.clip = audioClips[2];
         audioSource.Play();
+    }
+
+    public void PlayRhinoAttackSound()
+    {
+        Debug.Log("Playing called damage");
+
+        if (audioClips[3] != null)
+        {
+            Debug.Log("Playing rhino damage");
+            audioSource.clip = audioClips[3];
+            audioSource.Play();
+        }
     }
 }
