@@ -386,7 +386,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &5360236862003827736
@@ -430,7 +430,7 @@ MonoBehaviour:
   - {fileID: 0}
   Player: {fileID: 0}
   SightRange: 40
-  maxAngle: 65
+  maxAngle: 75
   AttackRange: 3
   PlayerLayer:
     serializedVersion: 2
@@ -443,6 +443,7 @@ MonoBehaviour:
   canThrow: 0
   isThrowDone: 0
   chasingSpeed: 4
+  canEnemyThrow: 1
 --- !u!95 &6319885938992197793
 Animator:
   serializedVersion: 5
@@ -483,7 +484,7 @@ MonoBehaviour:
   rock: {fileID: 199787612901732457}
   rockToThrow: {fileID: 1625781416467160, guid: 71d9ac8f41d09d143a75c692c68b1ce6, type: 3}
   playerTransform: {fileID: 0}
-  launchVelocity: 1250
+  launchVelocity: 1800
 --- !u!114 &8160473278508882313
 MonoBehaviour:
   m_ObjectHideFlags: 0

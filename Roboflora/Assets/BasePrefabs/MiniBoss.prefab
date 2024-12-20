@@ -1623,6 +1623,7 @@ MonoBehaviour:
   canThrow: 0
   isThrowDone: 0
   chasingSpeed: 8
+  canEnemyThrow: 0
 --- !u!195 &5963535664837928069
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1642,7 +1643,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.03
+  m_BaseOffset: -0.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &7678217332096019931

@@ -20,6 +20,7 @@ public class AIController : MonoBehaviour
     public bool isThrowDone;
     public float chasingSpeed;
 
+    public bool canEnemyThrow;
     void Start()
     {
         Agent = GetComponent<NavMeshAgent>();

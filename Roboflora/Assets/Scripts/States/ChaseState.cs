@@ -30,7 +30,7 @@ public class ChaseState : IState
             return;
         }
 
-        if(aiController.canThrow){
+        if(aiController.canThrow && aiController.canEnemyThrow){
             aiController.StateMachine.TransitionToState(StateType.Throw);
             return;
         }
