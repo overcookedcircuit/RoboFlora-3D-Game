@@ -84,8 +84,10 @@
     <Compile Include="Assets\Scripts\Weapon\GunBehavior.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Scripts\Player\Bird.cs" />
     <Compile Include="Assets\Scripts\UI\ChargeBar.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\Interface\PlayerBaseBehavior.cs" />
     <Compile Include="Assets\Scripts\Weapon\CrosshairTarget.cs" />
     <Compile Include="Assets\Scripts\Weapon\TriggerSpawnGunImpact.cs" />
     <Compile Include="Assets\Scripts\Weapon\SwitchingWeapon.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Pixel Guns 3D\Scripts\GunRotationDemo.cs" />
     <Compile Include="Assets\Scripts\Movement\BirdMovement.cs" />
+    <Compile Include="Assets\Scripts\Other\cursed button.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets\Scripts\Enemy\MiniBoss.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Assets\Pixel Guns 3D\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Enemy\RockThrow.cs" />
     <Compile Include="Assets\Scripts\States\PatrolState.cs" />
+    <Compile Include="Assets\Scripts\Player\Rhino.cs" />
     <Compile Include="Assets\Scripts\Other\button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
