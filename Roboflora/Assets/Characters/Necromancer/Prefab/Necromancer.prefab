@@ -1656,7 +1656,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400094}
-  - component: {fileID: 11100000}
   - component: {fileID: 683830782637359000}
   - component: {fileID: 4203894073237716224}
   - component: {fileID: 1047159841207833445}
@@ -1692,35 +1691,6 @@ Transform:
   - {fileID: 5330049970902202737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &11100000
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100094}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  m_Animations:
-  - {fileID: 7400000, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400002, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400004, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400006, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400008, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400010, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400012, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400014, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400016, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400018, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400020, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400022, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400024, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400026, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
 --- !u!195 &683830782637359000
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2176,7 +2146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5330049970902202737
 Transform:
   m_ObjectHideFlags: 0
