@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Weapon\LightWeapon.cs" />
     <Compile Include="Assets\Scripts\States\ThrowState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Scripts\Other\ToxicWater.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Weapon\FollowTarget.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
