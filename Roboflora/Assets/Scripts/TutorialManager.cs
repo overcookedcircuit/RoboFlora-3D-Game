@@ -17,7 +17,7 @@ public class TutorialManager : MonoBehaviour
         instructionSets = new String[13];
         index = 0;
         instructionSets[0] = "Press Left Click to Shoot";
-        instructionSets[1] = "Hold Down Right Click, wait till fully charged, then left click to shoot";
+        instructionSets[1] = "Hold Right Click to charge, then Left Click while holding Right Click to Shoot";
         instructionSets[2] = "Press 2 To Switch to Bird Form";
         instructionSets[3] = "Control the camera by holding right click";
         instructionSets[4] = "Press W A S D to Move, E to ascend, Q to descend";
@@ -27,7 +27,7 @@ public class TutorialManager : MonoBehaviour
         instructionSets[8] = "Press W A S D to Move, SHIFT to run";
         instructionSets[9] = "Control the camera by holding right click";
         instructionSets[10] = "Hold the key 'C', and release to activate a charge attack";
-        instructionSets[11] = "Fly through the wall to practice fighting enemies";
+        instructionSets[11] = "Fly through the holes on the wall to practice fighting enemies";
         instructionSets[12] = "Are You Ready?";
     }
 

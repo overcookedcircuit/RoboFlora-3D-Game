@@ -16,6 +16,8 @@ public class PlayerManager : MonoBehaviour
     public Image staminaFill;
 
     public GameObject pauseMenu; // Pause menu object
+    public GameObject deathMenu; // Pause menu object
+
     private bool gamePaused;
 
     // Player stats
@@ -85,7 +87,11 @@ public class PlayerManager : MonoBehaviour
 
     public void SetHealth(float health)
     {
-        Debug.Log("PLAYERMANAGER IS BEING USED");
+
+        if (health <= 0) {
+            PlayerDied();
+        }
+
         this.health = health;
         if (healthSlider != null)
         {
@@ -149,5 +155,30 @@ public class PlayerManager : MonoBehaviour
     public void Quit()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Respawn() {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (deathMenu != null)
+        {
+            deathMenu.SetActive(false);
+        }
+
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void PlayerDied() {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        if (deathMenu != null)
+        {
+            deathMenu.SetActive(true);
+        }
     }
 }
