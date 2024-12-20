@@ -90,13 +90,13 @@ public class button : MonoBehaviour
         }
     }
 
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         PlayerInZone = false;
-    //         txtToDisplay.SetActive(false);
-    //         Debug.Log("Player exited the trigger zone.");
-    //     }
-    // }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            PlayerInZone = false;
+            txtToDisplay.SetActive(false);
+            Debug.Log("Player exited the trigger zone.");
+        }
+    }
 }
