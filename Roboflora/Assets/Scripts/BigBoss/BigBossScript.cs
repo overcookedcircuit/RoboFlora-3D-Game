@@ -73,31 +73,39 @@ public class BigBossScript : EnemyBaseBehavior
     public override void Die()
     {
         SkinnedMeshRenderer[] skins = GetComponentsInChildren<SkinnedMeshRenderer>();
-        foreach(SkinnedMeshRenderer skin in skins){
+        foreach (SkinnedMeshRenderer skin in skins)
+        {
             skin.enabled = false;
         }
         dieEffect.Play();
         Destroy(this.gameObject, 1f);
 
-        SceneManager.LoadScene("gameWonWorld");
+        if (SceneManager.GetActiveScene().name == "world1")
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("gameWonWorld");
+        }
     }
 
-    public void EnableRock(){
+    public void EnableRock()
+    {
         //ROCK DEFAULT POSITION x=0, y =1.13, Z = 1.37
         rock.SetActive(true);
     }
 
 
-    public void ThrowRock(){
+    public void ThrowRock()
+    {
         rock.SetActive(false);
 
-         // Instantiate the rock to throw at the rock placeholder's position
+        // Instantiate the rock to throw at the rock placeholder's position
         GameObject ball = Instantiate(rockToThrow, rock.transform.position, Quaternion.identity);
 
 
         Rigidbody rb = ball.GetComponent<Rigidbody>();
-                                                     
-          // Calculate the direction toward the player's location
+
+        // Calculate the direction toward the player's location
         Vector3 direction = (playerTransform.position - transform.position).normalized;
 
         // Add force to throw the rock toward the player
