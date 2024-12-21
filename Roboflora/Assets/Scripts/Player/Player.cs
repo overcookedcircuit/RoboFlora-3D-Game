@@ -8,7 +8,7 @@ public class Player : PlayerBaseBehavior
     public CinemachineVirtualCamera defaultCam;
     public CinemachineVirtualCamera zoomCam;
     public CinemachineBrain cinemaBrain;
-    public int maxHealth = 100;
+    // public int maxHealth = 100;
     public float currentHealth;
     public HealthBar healthBar;
     public GameObject chargeBar;
@@ -24,18 +24,21 @@ public class Player : PlayerBaseBehavior
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        // playerManager.SetMaxHealth(maxHealth);
+        
+        // playerManager.health = maxHealth;
+
+        // currentHealth = maxHealth;
+        // healthBar.SetMaxHealth(maxHealth);
         gunController = lightGun.GetComponentInChildren<GunBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth < maxHealth)
+        if (playerManager.health < playerManager.maxHealth)
         {
-            currentHealth += 0.1f;
-            healthBar.SetHealth(currentHealth);
+            playerManager.SetHealth(playerManager.health  += 10f * Time.deltaTime);
         }
 
         if (Input.GetMouseButtonDown(1))

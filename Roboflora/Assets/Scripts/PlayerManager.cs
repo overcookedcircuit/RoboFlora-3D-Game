@@ -168,7 +168,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene("World1");
     }
 
     public void PlayerDied() {
