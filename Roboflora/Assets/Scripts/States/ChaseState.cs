@@ -13,6 +13,7 @@ public class ChaseState : IState
 
     public void Enter()
     {
+        Debug.Log("Chasing player");
         aiController.Animator.SetBool("isChasing", true);
         aiController.Animator.SetBool("isAttacking", false);
         aiController.Animator.SetBool("isThrowing", false);
