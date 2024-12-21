@@ -576,15 +576,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 544.6069
+      value: 542.7743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.906
+      value: 44.66948
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 657.82434
+      value: 664.23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1609,9 +1609,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Player: {fileID: 0}
-  SightRange: 40
+  SightRange: 30
   maxAngle: 75
-  AttackRange: 2
+  AttackRange: 5.5
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   throwChance: 0
   canThrow: 0
   isThrowDone: 0
-  chasingSpeed: 8
+  chasingSpeed: 5
   canEnemyThrow: 0
 --- !u!195 &5963535664837928069
 NavMeshAgent:
