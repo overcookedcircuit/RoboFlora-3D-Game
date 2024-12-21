@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class BigBossScript : EnemyBaseBehavior
 {
@@ -77,6 +78,8 @@ public class BigBossScript : EnemyBaseBehavior
         }
         dieEffect.Play();
         Destroy(this.gameObject, 1f);
+
+        SceneManager.LoadScene("gameWonWorld");
     }
 
     public void EnableRock(){
